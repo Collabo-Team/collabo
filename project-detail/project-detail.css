@@ -1,5 +1,24 @@
+:root {
+    --logo-font: 'Megrim', cursive;
+    --main-font: 'JetBrains Mono', monospace;
+
+}
+
+body {
+    font-family: var(--main-font);
+}
+
 button {
     cursor: pointer;
+}
+
+header {
+    margin: 48px;
+}
+
+header p {
+    font-family: var(--logo-font);
+    font-size: 2.4em;
 }
 
 #audio-player {
