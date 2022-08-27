@@ -28,12 +28,10 @@ header p {
     flex-direction: column;
 }
 
-#audio-player img {
-    height: 20px;
-}
-
 #audio-player button {
-    padding: 24px;
+    height: 48px;
+    width: 48px;
+    padding: 12px;
     margin: 12px;
     border-radius: 100%;
     border: none;
