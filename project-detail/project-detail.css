@@ -1,7 +1,13 @@
 :root {
     --logo-font: 'Megrim', cursive;
-    --main-font: 'JetBrains Mono', monospace;
+    --main-font: 'Space Mono', monospace;
 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -26,6 +32,22 @@ header p {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border: 1px solid black;
+    margin: 48px
+}
+
+.project-name {
+    margin-top: 48px;
+    font-size: 2em;
+}
+
+#track-metadata {
+    display: flex;
+    font-style: italic;
+}
+
+#track-metadata p {
+    margin: 12px 48px 36px 48px;
 }
 
 #audio-player button {
@@ -36,4 +58,21 @@ header p {
     border-radius: 100%;
     border: none;
     background-color: rgb(217, 217, 217);
+}
+
+.tracks {
+    text-align: center;
+}
+
+.track {
+    margin: 64px 0;
+}
+
+.track p {
+    font-size: 1.2em;
+    margin-bottom: 12px;
+}
+
+.track-progress {
+    font-size: 1.2em;
 }
