@@ -50,7 +50,7 @@ header p {
     margin: 12px 48px 36px 48px;
 }
 
-#audio-player button {
+#audio-buttons button {
     height: 48px;
     width: 48px;
     padding: 12px;
@@ -66,13 +66,33 @@ header p {
 
 .track {
     margin: 64px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .track p {
     font-size: 1.2em;
-    margin-bottom: 12px;
+    margin-right: 36px;
+}
+
+.track i {
+    margin-right: 12px;
 }
 
 .track-progress {
     font-size: 1.2em;
+}
+
+.fa-volume-mute {
+    display: none;
+}
+
+#download-button {
+    margin-bottom: 48px;
+    font-family: var(--main-font);
+    padding: 8px;
+    border-radius: .4em;
+    border: none;
+    background-color: rgb(183, 227, 180);
 }
