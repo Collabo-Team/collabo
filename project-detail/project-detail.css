@@ -1,0 +1,21 @@
+button {
+    cursor: pointer;
+}
+
+#audio-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#audio-player img {
+    height: 20px;
+}
+
+#audio-player button {
+    padding: 24px;
+    margin: 12px;
+    border-radius: 100%;
+    border: none;
+    background-color: rgb(217, 217, 217);
+}
