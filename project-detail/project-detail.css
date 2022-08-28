@@ -46,6 +46,17 @@ nav a {
     font-size: 1.2em;
 }
 
+.nav-links button {
+    margin-bottom: 48px;
+    font-family: var(--main-font);
+    padding: 10px 20px;
+    border-radius: .4em;
+    border: none;
+    color: white;
+    background: rgb(183,227,180);
+    background: linear-gradient(45deg, rgba(183,227,180,1) 0%, rgba(86,149,137,1) 66%);
+}
+
 /* AUDIO PLAYER */
 
 .section-wrapper {
