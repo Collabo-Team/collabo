@@ -33,6 +33,10 @@ nav {
     justify-content: space-between;
 }
 
+nav a {
+    color: inherit;
+}
+
 .nav-link {
     margin-left: 32px;
     font-size: 1.2em;
