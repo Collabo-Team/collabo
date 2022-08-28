@@ -23,7 +23,7 @@ button {
 /* HEADER */
 
 header {
-    margin: 48px;
+    margin: 48px 48px 0 48px;
 }
 
 header p {
@@ -43,7 +43,7 @@ nav a {
 
 .nav-link {
     margin-left: 32px;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 .nav-links button {
