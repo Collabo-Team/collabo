@@ -1,0 +1,145 @@
+:root {
+    --logo-font: 'Megrim', cursive;
+    --main-font: 'Space Mono', monospace;
+
+}
+
+/* GLOBAL STYLES */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--main-font);
+}
+
+button {
+    cursor: pointer;
+}
+
+/* HEADER */
+
+header {
+    margin: 48px;
+}
+
+header p {
+    font-family: var(--logo-font);
+    font-size: 2.4em;
+}
+
+nav {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+nav a {
+    color: inherit;
+}
+
+.nav-link {
+    margin-left: 32px;
+    font-size: 1.2em;
+}
+
+.nav-links button {
+    margin-bottom: 48px;
+    font-family: var(--main-font);
+    padding: 10px 20px;
+    border-radius: .4em;
+    border: none;
+    color: white;
+    background: rgb(183,227,180);
+    background: linear-gradient(45deg, rgba(183,227,180,1) 0%, rgba(86,149,137,1) 66%);
+}
+
+/* NEW COLLABO SECTION */
+
+#start-project-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+#start-project-form {
+    border: .5px solid black;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: 0 48px;
+    text-align: left;
+    width: 30vw;
+    margin: 0 auto;
+}
+
+#start-project-form h3 {
+    margin-top: 48px;
+    margin-bottom: 24px;
+}
+
+#start-project-form h3,
+#start-project-form h4,
+#start-project-form p  {
+    text-align: center;
+}
+
+#start-project-form label {
+    margin: 16px 0;
+}
+
+#start-project-form input {
+    padding: 4px;
+}
+
+#start-project-form input[name='instrument'],
+#start-project-form input::file-selector-button {
+    margin-top: 24px;
+    font-family: var(--main-font);
+    padding: 4px;
+}
+
+#start-project-form input[name='instrument'] {
+    width: 300px;
+}
+
+#start-project-form input[name='tempo'] {
+    width: 160px;
+}
+
+#start-project-form input[name='audio-input'] {
+    font-family: var(--main-font);
+}
+
+#start-project-form input::file-selector-button {
+    cursor: pointer;
+}
+
+#start-project-upload {
+    margin-top: 48px;
+}
+
+#start-project-upload p {
+    font-size: .8em;
+}
+
+#start-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+#start-project-button {
+    margin: 48px;
+    font-family: var(--main-font);
+    padding: 10px 0;
+    width: 50%;
+    border-radius: .4em;
+    border: none;
+    color: white;
+    background: rgb(183,227,180);
+    background: linear-gradient(45deg, rgba(183,227,180,1) 0%, rgba(86,149,137,1) 66%);
+}
