@@ -78,13 +78,27 @@ nav a {
 }
 
 #audio-buttons button {
-    height: 48px;
-    width: 48px;
+    height: 54px;
+    width: 54px;
     padding: 12px;
-    margin: 12px;
+    margin: 0 12px;
     border-radius: 100%;
     border: none;
     background-color: rgb(217, 217, 217);
+}
+
+#play-button,
+#pause-button {
+    transition: background-color 0.4s ease;
+}
+
+#play-button:focus,
+#play-button:hover {
+    background-color: #b7e3b4;
+}
+#pause-button:focus,
+#pause-button:hover {
+    background-color: #bfd8e4;
 }
 
 #playlist {
