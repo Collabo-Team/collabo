@@ -4,6 +4,8 @@
 
 }
 
+/* GLOBAL STYLES */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -17,6 +19,8 @@ body {
 button {
     cursor: pointer;
 }
+
+/* HEADER */
 
 header {
     margin: 48px;
@@ -41,6 +45,8 @@ nav a {
     margin-left: 32px;
     font-size: 1.2em;
 }
+
+/* AUDIO PLAYER */
 
 .section-wrapper {
     display: grid;
@@ -116,6 +122,8 @@ nav a {
     border: none;
     background-color: rgb(183, 227, 180);
 }
+
+/* UPLOAD SECTION */
 
 #upload-section {
     margin-right: 48px;
