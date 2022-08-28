@@ -11,54 +11,70 @@
 </head>
 <body>
     <header>
-        <p class="logo">Collabo</p>
+        <nav>
+            <p class="logo">Collabo</p>
+            <div class="nav-links">
+                <a class="nav-link">Projects</a>
+                <a class="nav-link">About</a>
+            </div>
+        </nav>
     </header>
-    <section id="audio-player">
-        <h2 class="project-name">Neo Soul Project</h2>
-        <div id="track-metadata">
-            <p>80 bpm</p>
-            <p>4/4</p>
-            <p>Key: C</p>
-        </div>
-        <div id="audio-buttons">
-            <button id="play-button"><i class="fas fa-play"></i></button>
-            <button id="pause-button"><i class="fas fa-pause"></i></button>
-            <button id="stop-button"><i class="fas fa-stop"></i></button>
-        </div>
-        <p class="track-progress">0:00 / 2:20</p>
+    <div class="section-wrapper">
+        <section id="audio-player">
+            <h2 class="project-name">Neo Soul Project</h2>
+            <div id="track-metadata">
+                <p>80 bpm</p>
+                <p>4/4</p>
+                <p>Key: C</p>
+            </div>
+            <div id="audio-buttons">
+                <button id="play-button"><i class="fas fa-play"></i></button>
+                <button id="pause-button"><i class="fas fa-pause"></i></button>
+                <button id="stop-button"><i class="fas fa-stop"></i></button>
+            </div>
+            <p class="track-progress">0:00 / 2:20</p>
 
-        <div class="tracks">
-            <div class="track">
-                <p>Guitar</p>
-                <div class="volume">
-                    <i class="fas fa-volume-up"></i>
-                    <i class="fas fa-volume-mute"></i>
-                    <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-slider"/>
+            <div class="tracks">
+                <div class="track">
+                    <p>Guitar</p>
+                    <div class="volume">
+                        <i class="fas fa-volume-up"></i>
+                        <i class="fas fa-volume-mute"></i>
+                        <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-slider"/>
+                    </div>
                 </div>
-            </div>
-            <div class="track">
-                <p>Bass</p>
-                <div class="volume">
-                    <i class="fas fa-volume-up"></i>
-                    <i class="fas fa-volume-mute"></i>
-                    <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-slider"/>
+                <div class="track">
+                    <p>Bass</p>
+                    <div class="volume">
+                        <i class="fas fa-volume-up"></i>
+                        <i class="fas fa-volume-mute"></i>
+                        <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-slider"/>
+                    </div>
                 </div>
-            </div>
-            <div class="track">
-                <p>Drums</p>
-                <div class="volume">
-                    <i class="fas fa-volume-up"></i>
-                    <i class="fas fa-volume-mute"></i>
-                    <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-slider"/>
+                <div class="track">
+                    <p>Drums</p>
+                    <div class="volume">
+                        <i class="fas fa-volume-up"></i>
+                        <i class="fas fa-volume-mute"></i>
+                        <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-slider"/>
+                    </div>
                 </div>
-            </div>
+                
+                <button id="download-button">Download All Tracks</button>
             
-            <button id="download-button">Download All Tracks</button>
-            
-        </div>
+            </div>
 
-    </section>
+        </section>
 
+        <section id="upload-section">
+            <form id="upload-form">
+                <h3>Upload Your Track</h3>
+                <input name="instrument" placeholder="Enter instrument name..." required>
+                <input name="audio-input" type="file" required>
+                <button id="submit-button">Submit Your Track</button>
+            </form>
+        </section>
+    </div>
 
    <script type="module" src="project-detail.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

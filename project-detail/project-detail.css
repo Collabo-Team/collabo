@@ -27,13 +27,29 @@ header p {
     font-size: 2.4em;
 }
 
+nav {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.nav-link {
+    margin-left: 32px;
+    font-size: 1.2em;
+}
+
+.section-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
 #audio-player {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     border: 1px solid black;
-    margin: 48px
+    margin: 0 48px;
 }
 
 .project-name {
@@ -91,7 +107,41 @@ header p {
 #download-button {
     margin-bottom: 48px;
     font-family: var(--main-font);
-    padding: 8px;
+    padding: 10px;
+    border-radius: .4em;
+    border: none;
+    background-color: rgb(183, 227, 180);
+}
+
+#upload-section {
+    margin-right: 48px;
+}
+
+#upload-form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 64px;
+    text-align: center;
+}
+
+#upload-form input[name='instrument'],
+#upload-form input::file-selector-button,
+#upload-form button {
+    margin-top: 24px;
+    padding: 10px;
+    font-family: var(--main-font);
+}
+
+#upload-form input[name='audio-input'] {
+    font-family: var(--main-font);
+}
+
+#upload-form input::file-selector-button {
+    cursor: pointer;
+}
+
+#submit-button {
     border-radius: .4em;
     border: none;
     background-color: rgb(183, 227, 180);
