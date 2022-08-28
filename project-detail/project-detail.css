@@ -120,6 +120,57 @@ nav a {
     border-bottom: 0.1px solid black;
 }
 
+.playlist .controls input[type=range] {
+    border: none;
+    border-radius: 50%;
+    cursor: ew-resize;
+}
+
+.playlist .selection.point {
+    background: grey;
+}
+
+.playlist .cursor {
+    background: black;
+}
+
+.playlist .controls label {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0.1em 1.8em;
+  margin-bottom: 0.2rem;
+}
+.playlist .controls label:before, 
+.playlist .controls label:after {
+  font-size: .6em;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.playlist .controls label.volume:before {
+  content: "\f027";
+}
+.playlist .controls label.volume:after {
+  content: "\f028";
+}
+.playlist .controls label.stereopan:before {
+  content: "L";
+}
+.playlist .controls label.stereopan:after {
+  content: "R";
+}
+
+.playlist .playlist-time-scale {
+  height: 30px;
+  font-size: .3em;
+}
+
 .btn-mute,
 .btn-solo {
     margin: 0 8px;

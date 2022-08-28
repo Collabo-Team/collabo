@@ -1,16 +1,19 @@
 // eslint-disable-next-line no-undef
 var playlist = WaveformPlaylist.init({
     container: document.getElementById('playlist'),
-    samplesPerPixel: 128,
+    samplesPerPixel: 1000,
     waveHeight: 100,
     timescale: true,
     state: 'cursor',
+    // seekStyle: 'line',
+    isAutomaticScroll: true,
     colors: {
         waveOutlineColor: '#c78283',
     },
-    zoomLevels: [128, 256, 512],
+    zoomLevels: [128, 256, 512, 1000],
     controls: {
         show: true,
+        width: 220,
     },
 });
 
@@ -40,7 +43,7 @@ playlist
         });
     });
 
-// HORIZONATAL SCROLLING INSIDE WAVEFORM
+// HORIZONTAL SCROLLING INSIDE WAVEFORM
 const container = document.querySelector('.playlist-tracks');
 container.addEventListener('wheel', function(e) {
     if (e.deltaY > 0) {
