@@ -115,12 +115,12 @@ nav {
 
 #upload-section {
     margin-right: 48px;
+    border: 1px solid black;
 }
 
 #upload-form {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
     padding: 64px;
     text-align: center;
 }
@@ -145,4 +145,19 @@ nav {
     border-radius: .4em;
     border: none;
     background-color: rgb(183, 227, 180);
+}
+
+#tips h4 {
+    text-align: center;
+    font-size: .9em;
+}
+
+#tips ul {
+    list-style: none;
+    margin: 16px;
+}
+
+#tips li {
+    font-size: .8em;
+    margin-bottom: 16px;
 }
