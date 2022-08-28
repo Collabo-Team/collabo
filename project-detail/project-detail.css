@@ -124,6 +124,7 @@ nav a {
 .btn-solo {
     margin: 0 8px;
     padding: 2px;
+    border: .1px solid black;
 }
 
 #playlist i,
