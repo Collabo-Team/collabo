@@ -51,6 +51,7 @@ nav a {
 .section-wrapper {
     display: grid;
     grid-template-columns: 3fr 1fr;
+    margin-bottom: 48px;
 }
 
 #audio-player {
@@ -86,31 +87,34 @@ nav a {
     background-color: rgb(217, 217, 217);
 }
 
-.tracks {
+#playlist {
+    margin: 64px 0;
     text-align: center;
 }
 
-.track {
-    margin: 64px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.track p {
+#playlist span {
     font-size: 1.2em;
-    margin-right: 36px;
+    margin-bottom: 20px;
 }
 
-.track i {
-    margin-right: 12px;
+.playlist-tracks {
+    width: 800px;
 }
 
-.track-progress {
-    font-size: 1.2em;
+.controls {
+    background-color: rgb(248, 248, 248);
+    border-bottom: 0.1px solid black;
 }
 
-.fa-volume-mute {
+.btn-mute,
+.btn-solo {
+    margin: 0 8px;
+    padding: 2px;
+}
+
+#playlist i,
+.track-remove,
+.track-collapse {
     display: none;
 }
 

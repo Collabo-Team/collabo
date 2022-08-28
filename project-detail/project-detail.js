@@ -1,58 +1,41 @@
-const playButton = document.getElementById('play-button');
-const pauseButton = document.getElementById('pause-button');
-const stopButton = document.getElementById('stop-button');
-
 // eslint-disable-next-line no-undef
-const sound1 = new Howl({
-    src: ['../assets/audio-demos/demo-1/guitar.mp3'],
-    preload: true,
-});
-// eslint-disable-next-line no-undef
-const sound2 = new Howl({
-    src: ['../assets/audio-demos/demo-1/bass.mp3'],
-    preload: true,
-});
-// eslint-disable-next-line no-undef
-const sound3 = new Howl({
-    src: ['../assets/audio-demos/demo-1/drums.mp3'],
-    preload: true,
-});
-
-function playAll() {
-    sound1.play();
-    sound2.play();
-    sound3.play();
-}
-
-function pauseAll() {
-    sound1.pause();
-    sound2.pause();
-    sound3.pause();
-}
-
-function stopAll() {
-    sound1.stop();
-    sound2.stop();
-    sound3.stop();
-}
-
-playButton.addEventListener('click', () =>{
-    playAll();
-    playButton.style.backgroundColor = 'lightgreen';
-    pauseButton.style.backgroundColor = 'rgb(217, 217, 217)';
-    stopButton.style.backgroundColor = 'rgb(217, 217, 217)';
+var playlist = WaveformPlaylist.init({
+    container: document.getElementById('playlist'),
+    samplesPerPixel: 128,
+    waveHeight: 100,
+    timescale: true,
+    state: 'cursor',
+    colors: {
+        waveOutlineColor: '#c78283',
+    },
+    zoomLevels: [128, 256, 512],
+    controls: {
+        show: true,
+    },
 });
 
-pauseButton.addEventListener('click', () =>{
-    pauseAll();
-    playButton.style.backgroundColor = 'rgb(217, 217, 217)';
-    pauseButton.style.backgroundColor = 'grey';
-    stopButton.style.backgroundColor = 'rgb(217, 217, 217)';
-});
+playlist
+    .load([
+        {
+            src: '../assets/audio-demos/demo-1/guitar.mp3',
+            name: 'Guitar',
+        },
+        {
+            src: '../assets/audio-demos/demo-1/bass.mp3',
+            name: 'Bass',
+        },
+        {
+            src: '../assets/audio-demos/demo-1/drums.mp3',
+            name: 'Drums',
+        },
+    ])
+    .then(function() {
+        var ee = playlist.getEventEmitter();
+        document.getElementById('play-button').addEventListener('click', function() {
+            ee.emit('play');
+        });
 
-stopButton.addEventListener('click', () => {
-    stopAll();
-    playButton.style.backgroundColor = 'rgb(217, 217, 217)';
-    pauseButton.style.backgroundColor = 'rgb(217, 217, 217)';
-    stopButton.style.backgroundColor = 'tomato';
-});
+        document.getElementById('pause-button').addEventListener('click', function() {
+            ee.emit('pause');
+        });
+    });

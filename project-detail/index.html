@@ -30,40 +30,11 @@
             <div id="audio-buttons">
                 <button id="play-button"><i class="fas fa-play"></i></button>
                 <button id="pause-button"><i class="fas fa-pause"></i></button>
-                <button id="stop-button"><i class="fas fa-stop"></i></button>
             </div>
-            <p class="track-progress">0:00 / 2:20</p>
 
-            <div class="tracks">
-                <div class="track">
-                    <p>Guitar</p>
-                    <div class="volume">
-                        <i class="fas fa-volume-up"></i>
-                        <i class="fas fa-volume-mute"></i>
-                        <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-slider"/>
-                    </div>
-                </div>
-                <div class="track">
-                    <p>Bass</p>
-                    <div class="volume">
-                        <i class="fas fa-volume-up"></i>
-                        <i class="fas fa-volume-mute"></i>
-                        <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-slider"/>
-                    </div>
-                </div>
-                <div class="track">
-                    <p>Drums</p>
-                    <div class="volume">
-                        <i class="fas fa-volume-up"></i>
-                        <i class="fas fa-volume-mute"></i>
-                        <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-slider"/>
-                    </div>
-                </div>
-                
-                <button id="download-button">Download All Tracks</button>
+            <div id="playlist"></div>
             
-            </div>
-
+            <button id="download-button">Download All Tracks</button>
         </section>
 
         <section id="upload-section">
@@ -85,10 +56,9 @@
                 </ul>
             </section>
         </section>
-
     </div>
-
-   <script type="module" src="project-detail.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="https://unpkg.com/waveform-playlist@4.2.2/build/waveform-playlist.var.min.js"></script>
+    <script type="module" src="project-detail.js"></script>
 </body>
 </html>
