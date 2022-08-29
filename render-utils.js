@@ -5,9 +5,12 @@ export function renderProject(project) {
     const p = document.createElement('p');
     p.classList.add('project-description');
 
+    const a = document.createElement('a');
+    a.href = `./project-detail/?id=${project.id}`;
+
     p.textContent = `${project.genre}`;
 
-    div.append(p);
+    a.append(div, p);
 
-    return div;
+    return a;
 }
