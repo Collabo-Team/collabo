@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Megrim&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="project-detail.css" />
+    <link rel="icon" type="image/x-icon" href="../assets/collabo-icon.png">
+    <title>Collabo | Project</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <p class="logo">Collabo</p>
+            <div class="nav-links">
+                <a href="../start-project"><button>Start a Collabo</button></a>
+                <a href="/" class="nav-link">Projects</a>
+                <a href="../about" class="nav-link">About</a>
+            </div>
+        </nav>
+    </header>
+    <div class="section-wrapper">
+        <section id="audio-player">
+            <h2 class="project-name">Neo Soul Project</h2>
+            <div id="track-metadata">
+                <p>80 bpm</p>
+                <p>4/4</p>
+                <p>C major</p>
+            </div>
+            <div id="audio-buttons">
+                <button id="play-button"><i class="fas fa-play"></i></button>
+                <button id="pause-button"><i class="fas fa-pause"></i></button>
+            </div>
+
+            <!-- <span class="audio-pos" aria-label="Audio position">00:00:00.0</span> -->
+
+            <div id="playlist"></div>
+            
+            <button id="download-button">Download All Tracks</button>
+        </section>
+
+        <section id="upload-section">
+            <form id="upload-form">
+                <h3>Upload Your Track</h3>
+                <input name="audio-input" type="file" required accept=".mp3">
+                <input name="instrument" placeholder="Enter instrument name..." required>
+                <button id="submit-button">Submit Your Track</button>
+            </form>
+            <div id="tips">
+                <h4>Tips for a Successful Collabo:</h4>
+                <ul>
+                    <li>✔️ Be sure your file is exactly the same length as the project files.</li>
+                    <li>✔️ Be sure your file is the same tempo and key signature as the project files.</li>
+                    <li>✔️ You can use the DAW (Digital Audio Workstation) of your choice.</li>
+                    <li>✔️ Export your file as an mp3.</li>
+                    <li>✔️ Only upload one instrument track at a time.</li>
+                    <li>✔️ Get in touch with the project manager for further Collabos!</li>
+                </ul>
+            </section>
+        </section>
+    </div>
+    
+    <script src="https://unpkg.com/waveform-playlist@4.2.2/build/waveform-playlist.var.min.js"></script>
+    <script type="module" src="project-detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+:root {
+    --logo-font: 'Megrim', cursive;
+    --main-font: 'Space Mono', monospace;
+
+}
+
+/* GLOBAL STYLES */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--main-font);
+}
+
+button {
+    cursor: pointer;
+}
+
+/* HEADER */
+
+header {
+    margin: 48px 48px 0 48px;
+}
+
+header p {
+    font-family: var(--logo-font);
+    font-size: 2.4em;
+}
+
+nav {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+nav a {
+    color: inherit;
+}
+
+.nav-link {
+    margin-left: 32px;
+    font-size: 1em;
+}
+
+.nav-links button {
+    margin-bottom: 48px;
+    font-family: var(--main-font);
+    padding: 10px 20px;
+    border-radius: .4em;
+    border: none;
+    color: white;
+    background: rgb(183,227,180);
+    background: linear-gradient(45deg, rgba(183,227,180,1) 0%, rgba(86,149,137,1) 66%);
+}
+
+/* AUDIO PLAYER */
+
+.section-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin-bottom: 48px;
+}
+
+#audio-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+    margin: 0 48px;
+}
+
+.project-name {
+    margin-top: 48px;
+    font-size: 2em;
+}
+
+#track-metadata {
+    display: flex;
+    font-style: italic;
+}
+
+#track-metadata p {
+    margin: 12px 48px 36px 48px;
+}
+
+#audio-buttons button {
+    height: 54px;
+    width: 54px;
+    padding: 12px;
+    margin: 0 12px;
+    border-radius: 100%;
+    border: none;
+    background-color: rgb(217, 217, 217);
+}
+
+#play-button,
+#pause-button {
+    transition: background-color 0.4s ease;
+}
+
+#play-button:focus,
+#play-button:hover {
+    background-color: #b7e3b4;
+}
+#pause-button:focus,
+#pause-button:hover {
+    background-color: #bfd8e4;
+}
+
+#playlist {
+    margin: 48px 0;
+    text-align: center;
+}
+
+#playlist span {
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.playlist-tracks {
+    width: 800px;
+}
+
+.playlist-overlay {
+    border-bottom: 0.1px solid rgb(75, 75, 75);
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(248, 248, 248);
+    border-bottom: 0.1px solid rgb(75, 75, 75);
+}
+
+.playlist .controls input[type=range] {
+    border: none;
+    border-radius: 50%;
+    cursor: ew-resize;
+    width: 75%;
+    height: 4px;
+    appearance: none;
+    background-color: lightgray;
+}
+
+.playlist .selection.point {
+    background: grey;
+}
+
+.playlist .cursor {
+    background: black;
+}
+
+.playlist .controls label {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0.1em 1.8em;
+  margin-bottom: 0.2rem;
+}
+.playlist .controls label:before, 
+.playlist .controls label:after {
+  font-size: .6em;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.playlist .controls label.volume:before {
+  content: "\f027";
+}
+.playlist .controls label.volume:after {
+  content: "\f028";
+}
+.playlist .controls label.stereopan:before {
+  content: "L";
+}
+.playlist .controls label.stereopan:after {
+  content: "R";
+}
+
+.playlist .playlist-time-scale {
+  height: 30px;
+  font-size: .3em;
+}
+
+.btn-mute,
+.btn-solo {
+    margin: 0 8px;
+    padding: 2px;
+    border: .1px solid black;
+    font-size: .6em;
+    border-radius: .5em;
+}
+
+#playlist i,
+.track-remove,
+.track-collapse {
+    display: none;
+}
+
+#download-button {
+    margin-bottom: 48px;
+    font-family: var(--main-font);
+    padding: 10px;
+    border-radius: .4em;
+    border: none;
+    background-color: rgb(183, 227, 180);
+}
+
+/* UPLOAD SECTION */
+
+#upload-section {
+    margin-right: 48px;
+    border: 1px solid black;
+}
+
+#upload-form {
+    display: flex;
+    flex-direction: column;
+    padding: 64px;
+    text-align: center;
+}
+
+#upload-form input[name='instrument'],
+#upload-form input::file-selector-button,
+#upload-form button {
+    margin-top: 24px;
+    padding: 10px;
+    font-family: var(--main-font);
+}
+
+#upload-form input[name='audio-input'] {
+    font-family: var(--main-font);
+}
+
+#upload-form input::file-selector-button {
+    cursor: pointer;
+}
+
+#submit-button {
+    border-radius: .4em;
+    border: none;
+    background-color: rgb(183, 227, 180);
+}
+
+#tips h4 {
+    text-align: center;
+    font-size: .9em;
+}
+
+#tips ul {
+    list-style: none;
+    margin: 16px;
+}
+
+#tips li {
+    font-size: .8em;
+    margin-bottom: 16px;
+}
