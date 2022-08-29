@@ -53,9 +53,66 @@ nav a {
     border-radius: .4em;
     border: none;
     color: white;
-    background: rgb(183,227,180);
-    background: linear-gradient(45deg, rgba(183,227,180,1) 0%, rgba(86,149,137,1) 66%);
+    background: rgb(183, 227, 180);
+    background: linear-gradient(45deg, rgba(183, 227, 180, 1) 0%, rgba(86, 149, 137, 1) 66%);
 }
 
 /* HOME PAGE */
 
+.headline {
+    text-align: center;
+}
+
+.headline h1 {
+    font-family: var(--main-font);
+    font-size: 5rem;
+    text-transform: uppercase;
+    line-height: 9rem;
+}
+
+.headline p {
+    font-family: var(--main-font);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.collabo-btn {
+    font-family: var(--main-font);
+    padding: 10px 20px;
+    border-radius: .4em;
+    border: none;
+    color: white;
+    background: rgb(183, 227, 180);
+    background: linear-gradient(45deg, rgba(183, 227, 180, 1) 0%, rgba(86, 149, 137, 1) 66%);
+}
+
+.button-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+}
+
+.project-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects-container {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    margin: 20px;
+}
+
+.example-project {
+    height: 250px;
+    width: 250px;
+    background: linear-gradient(45deg, rgba(183, 227, 180, 1) 0%, rgba(86, 149, 137, 1) 66%);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
