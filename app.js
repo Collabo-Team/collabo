@@ -6,17 +6,17 @@ import { renderProject } from './render-utils.js';
 
 /*  "boiler plate" auth code */
 // checking if we have a user! (will redirect to auth if not):
-checkAuth();
+// checkAuth();
 // can optionally return the user:
 // const user = checkAuth();
 
 // sign out link:
-const signOutLink = document.getElementById('sign-out-link');
-signOutLink.addEventListener('click', signOutUser);
+// const signOutLink = document.getElementById('sign-out-link');
+// signOutLink.addEventListener('click', signOutUser);
 /* end "boiler plate auth code" */
 
 // grab needed DOM elements on page:
-const projectsListEl = document.querySelector('.project-container');
+const projectsListEl = document.getElementById('projects-container');
 // local state:
 
 // display functions:
@@ -26,6 +26,7 @@ async function displayProjects() {
     projectsListEl.textContent = '';
 
     const projects = await getProjects();
+    console.log('projects', projects);
 
     for (let project of projects) {
         const projectEl = renderProject(project);
