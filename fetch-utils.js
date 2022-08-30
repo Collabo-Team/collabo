@@ -79,7 +79,7 @@ export async function signOutUser() {
 
 
 export async function newProject(project) {
-    return await client.from('projects').insert(project);
+    return await client.from('projects').insert(project).single();
 }
 
 export async function updateTrack(track) {
@@ -100,7 +100,14 @@ export async function uploadAudio(bucketName, audioName, audioFile) {
         return null;
     }
 
-    const url = `${SUPABASE_URL}/storage/v1/object/public/files-bucket/${response.data.Key}`;
+    const url = `${SUPABASE_URL}/storage/v1/object/public/${response.data.Key}`;
 
     return url;
 }
+
+// export async function downloadTrack() {
+//     const response = await client.storage
+//         .from('files-bucket')
+//         .download('user-files/audioName');
+//     console.log('!!', response.data);
+// }
