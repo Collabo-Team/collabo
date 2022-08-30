@@ -1,3 +1,6 @@
+import { getProject } from '../fetch-utils.js';
+
+
 // eslint-disable-next-line no-undef
 var playlist = WaveformPlaylist.init({
     container: document.getElementById('playlist'),
@@ -32,20 +35,20 @@ playlist
             name: 'Drums',
         },
     ])
-    .then(function() {
+    .then(function () {
         var ee = playlist.getEventEmitter();
-        document.getElementById('play-button').addEventListener('click', function() {
+        document.getElementById('play-button').addEventListener('click', function () {
             ee.emit('play');
         });
 
-        document.getElementById('pause-button').addEventListener('click', function() {
+        document.getElementById('pause-button').addEventListener('click', function () {
             ee.emit('pause');
         });
     });
 
 // HORIZONTAL SCROLLING INSIDE WAVEFORM
 const container = document.querySelector('.playlist-tracks');
-container.addEventListener('wheel', function(e) {
+container.addEventListener('wheel', function (e) {
     if (e.deltaY > 0) {
         container.scrollLeft += 100;
         e.preventDefault();
@@ -83,6 +86,7 @@ uploadForm.addEventListener('submit', async (e) => {
 // RENDER PROJECT
 export function renderProject(project) {
     const div = document.createElement('div');
+    // const div = document.createDocumentFragment();
 
     const h2 = document.createElement('h2');
     h2.classList.add('project-name');
@@ -95,15 +99,35 @@ export function renderProject(project) {
     const timeSignature = document.createElement('p');
     const key = document.createElement('p');
 
-    
+
     h2.textContent = project.name;
     genre.textContent = project.genre;
     tempo.textContent = project.tempo;
     timeSignature.textContent = project.time_signature;
     key.textContent = project.key;
-    
+
     metadataDiv.append(genre, tempo, timeSignature, key);
     div.append(h2, metadataDiv);
 
+    // console.log(renderProject(19));
     return div;
 }
+
+// The function below is for displaying the project detail page
+// it feeds data from the fetch util into the render util
+// and prepends it to the audio-buttons HTML element
+
+async function displayProjectById(projectId) {
+
+    // const audioButtons = document.getElementById('audio-buttons');
+    const projectContainer = document.getElementById('project-container');
+
+    const loadProject = await getProject(projectId);
+
+    const newProject = renderProject(loadProject);
+
+    // audioButtons.prepend(newProject);
+    projectContainer.append(newProject);
+}
+
+displayProjectById(19);

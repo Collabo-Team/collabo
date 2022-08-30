@@ -59,6 +59,12 @@ nav a {
 
 /* AUDIO PLAYER */
 
+.project-container {
+    border: 2px solid black;
+    width: 300px;
+    height: 300px;
+}
+
 .section-wrapper {
     display: grid;
     grid-template-columns: 3fr 1fr;
