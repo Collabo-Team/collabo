@@ -73,6 +73,9 @@ nav a {
 .headline p {
     font-family: var(--main-font);
     font-size: 1.5rem;
+}
+
+.tagline {
     margin-bottom: 20px;
 }
 
@@ -84,6 +87,7 @@ nav a {
     color: white;
     background: rgb(183, 227, 180);
     background: linear-gradient(45deg, rgba(183, 227, 180, 1) 0%, rgba(86, 149, 137, 1) 66%);
+    margin: 10px 0;
 }
 
 .button-div {
@@ -101,21 +105,22 @@ nav a {
 
 .projects-container {
     display: grid;
-    grid-gap: 20px;
+    grid-gap: 30px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     margin: 20px;
 }
 
 .project-list {
-    height: 250px;
-    width: 250px;
+    height: 280px;
+    width: 280px;
     background: linear-gradient(45deg, rgba(183, 227, 180, 1) 0%, rgba(86, 149, 137, 1) 66%);
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 6px 6px 17px -7px rgb(0 0 0 / 75%);
+    box-shadow: 8px 8px 8px -8px rgb(0 0 0 / 50%);
+    border-radius: 0.4em;
 }
 
 .project-description {
