@@ -48,5 +48,6 @@ export async function downloadAllTracksByProjectId(project_id) {
     return await client.from('tracks').select('*').match({ project_id }).download(`user-files/${tracks.url}`);
 }
     
-    // 
+    // returns a blob
+    // iterate through tracks and open a new browser tab for each track
 // }
