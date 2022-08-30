@@ -1,4 +1,4 @@
-import { getProject } from '../fetch-utils.js';
+import { getProject, uploadAudio, updateTrack } from '../fetch-utils.js';
 
 
 // eslint-disable-next-line no-undef
@@ -58,30 +58,6 @@ container.addEventListener('wheel', function (e) {
     }
 });
 
-// UPLOAD TRACK FORM
-const uploadForm = document.getElementById('upload-form');
-
-uploadForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(uploadForm);
-    const audioInput = formData.get('audio-input');
-    const instrument = formData.get('instrument');
-
-    // const response = await audioUpload(audioInput, instrument);
-
-    uploadForm.reset();
-
-    console.log(audioInput, instrument);
-
-    // const error = response.error;
-
-    // if (error) {
-    //     console.log(error.message);
-    // } else {
-    //     displayProject();
-    // }
-});
 
 // RENDER PROJECT
 export function renderProject(project) {
@@ -130,4 +106,56 @@ async function displayProjectById(projectId) {
     projectContainer.append(newProject);
 }
 
+// calling the displayProjectById function to keep squiggles away until 
+// we link to the rest of the project files 
 displayProjectById(19);
+
+
+// UPLOAD TRACK FORM
+const uploadForm = document.getElementById('upload-form');
+
+uploadForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(uploadForm);
+    // const audioInput = formData.get('audio-input');
+    // const instrument = formData.get('instrument');
+    const project = await getProject(project);
+    
+    console.log(project);
+
+    const trackUpload = {
+        instrument: formData.get('instrument')
+    };
+
+    const audioFile = formData.get('audio-input');
+    if (audioFile.size) {
+        const audioName = `${project.id}/${Math.floor(Math.random() * 1000000)}${audioFile.name}`;
+        const url = await uploadAudio(
+            'files-bucket',
+            audioName,
+            audioFile
+        );
+        trackUpload.folder = audioName;
+        trackUpload.url = url;
+        trackUpload.project_id = project.id;
+        await updateTrack(trackUpload);
+
+    }
+
+
+    // const response = await audioUpload(audioInput, instrument);
+
+    uploadForm.reset();
+
+    // console.log(audioInput, instrument);
+
+    // const error = response.error;
+
+    // if (error) {
+    //     console.log(error.message);
+    // } else {
+    //     displayProject();
+    // }
+});
+
