@@ -1,5 +1,7 @@
 // import fetch utils functions
-import { uploadAudio, newProject, updateTrack } from '../fetch-utils.js';
+import { uploadAudio, newProject, updateTrack, checkAuth } from '../fetch-utils.js';
+
+checkAuth();
 
 //DOM elements
 const startForm = document.getElementById('start-project-form');
@@ -46,3 +48,6 @@ startForm.addEventListener('submit', async (event) => {
 // downloadButton.addEventListener('click', async () => {
 //     await downloadTrack();
 // });
+
+
+

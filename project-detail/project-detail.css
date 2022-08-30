@@ -23,7 +23,7 @@ button {
 /* HEADER */
 
 header {
-    margin: 48px;
+    margin: 48px 48px 0 48px;
 }
 
 header p {
@@ -43,7 +43,7 @@ nav a {
 
 .nav-link {
     margin-left: 32px;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 .nav-links button {
@@ -59,13 +59,19 @@ nav a {
 
 /* AUDIO PLAYER */
 
+.project-container {
+    border: 2px solid black;
+    width: 300px;
+    height: 300px;
+}
+
 .section-wrapper {
     display: grid;
     grid-template-columns: 3fr 1fr;
     margin-bottom: 48px;
 }
 
-#audio-player {
+.audio-player {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,12 +85,12 @@ nav a {
     font-size: 2em;
 }
 
-#track-metadata {
+.track-metadata {
     display: flex;
     font-style: italic;
 }
 
-#track-metadata p {
+.track-metadata p {
     margin: 12px 48px 36px 48px;
 }
 

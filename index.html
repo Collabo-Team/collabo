@@ -9,27 +9,54 @@
     <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Megrim&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles/reset.css" />
     <link rel="stylesheet" href="styles/global.css" />
-    <title>Supabase Web App</title>
+    <link rel="icon" type="image/x-icon" href="assets/collabo-icon.png">
+    <title>Collabo | Home</title>
 </head>
 
 <body>
-    <header class="page-header">
-        <img class="logo" src="/assets/html_css_js.png">
-        <p class="title">Supabase Web App</p>
+    <header>
         <nav>
-            <a id="sign-out-link" href="auth">Sign Out</a>
+            <p class="logo">Collabo</p>
+            <div class="nav-links">
+                <a href="start-project"><button>Start a Collabo</button></a>
+                <a href="about" class="nav-link">About</a>
+                <a id="sign-out-link" href="/auth" class="nav-link">Sign-Out</a>
+            </div>
         </nav>
     </header>
 
     <main>
+        <div class="header">
 
+            <div class="headline">
+
+                <h1>Create</h1>
+                <h1>Contribute</h1>
+                <h1>Collaborate</h1>
+
+                <div class="button-div">
+                    <a href="./start-project"><button class="collabo-btn">Start a Collabo</button></a>
+                </div>
+
+                <p class="tagline">a platform for like minded musicians to meet and collaborate</p>
+                <p class="tagline">open-source remote recording projects</p>
+            </div>
+
+            <div class="project-wrapper">
+                <div class="projects-container" id="projects-container">
+
+                </div>
+            </div>
+            
+        </div>
     </main>
 
-    <footer>&copy;2022 Alchemy Software Developer</footer>
+    <footer></footer>
 
     <script type="module" src="app.js"></script>
 </body>

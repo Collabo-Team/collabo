@@ -105,9 +105,67 @@ export async function uploadAudio(bucketName, audioName, audioFile) {
     return url;
 }
 
+
 // export async function downloadTrack() {
 //     const response = await client.storage
 //         .from('files-bucket')
 //         .download('user-files/audioName');
 //     console.log('!!', response.data);
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export async function getProject(id) {
+    // from the roster table, select a single player who has the matching id
+    const response = await client.from('projects').select('*').match({ id }).single();
+    // and return the response
+    if (response.error) {
+        throw new Error(response.error.message);
+    }
+    return response.data;
+}
+
+export async function getProjects() {
+    const response = await client.from('projects').select('*');
+    return response.data;
+}
+
+// track.name
