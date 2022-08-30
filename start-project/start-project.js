@@ -17,7 +17,6 @@ startForm.addEventListener('submit', async (event) => {
         key: data.get('key-signature'),
     });
     const project = response.data;
-    console.log(project);
     const trackUpload = {
         instrument: data.get('instrument')
     };
