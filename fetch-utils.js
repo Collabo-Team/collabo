@@ -44,3 +44,87 @@ export async function signOutUser() {
 }
 
 /* Data functions */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export async function getProject(id) {
+    // from the roster table, select a single player who has the matching id
+    const response = await client.from('projects').select('*').match({ id }).single();
+    // and return the response
+    if (response.error) {
+        throw new Error(response.error.message);
+    }
+    return response.data;
+}
