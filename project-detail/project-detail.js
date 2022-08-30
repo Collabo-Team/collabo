@@ -1,3 +1,7 @@
+import { checkAuth } from '../fetch-utils.js';
+
+checkAuth();
+
 // eslint-disable-next-line no-undef
 var playlist = WaveformPlaylist.init({
     container: document.getElementById('playlist'),
