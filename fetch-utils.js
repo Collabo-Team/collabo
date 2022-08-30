@@ -44,7 +44,7 @@ export async function signOutUser() {
 
 /* Data functions */
 export async function getProjects() {
-    const response = await client.from('projects').select('genre');
+    const response = await client.from('projects').select('*');
     return response.data;
 }
 

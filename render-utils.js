@@ -6,11 +6,13 @@ export function renderProject(project) {
     p.classList.add('project-description');
 
     const a = document.createElement('a');
+    // a.classList.add('project-list');
     a.href = `./project-detail/?id=${project.id}`;
 
-    p.textContent = `${project.genre}`;
+    p.textContent = `${project.name}`;
 
-    a.append(div, p);
+    div.append(p);
+    a.append(div);
 
     return a;
 }

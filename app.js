@@ -26,7 +26,6 @@ async function displayProjects() {
     projectsListEl.textContent = '';
 
     const projects = await getProjects();
-    console.log('projects', projects);
 
     for (let project of projects) {
         const projectEl = renderProject(project);

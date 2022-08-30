@@ -115,8 +115,21 @@ nav a {
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 6px 6px 17px -7px rgb(0 0 0 / 75%);
 }
 
 .project-description {
     font-family: var(--main-font);
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+    text-decoration: none;
+}
+
+.project-description {
+    color: black;
+    font-size: 1.5rem;
 }
