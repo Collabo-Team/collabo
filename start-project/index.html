@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Megrim&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="start-project.css" />
+    <link rel="icon" type="image/x-icon" href="../assets/collabo-icon.png">
+    <title>Collabo | Start a Project</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <p class="logo">Collabo</p>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Projects</a>
+                <a href="../about" class="nav-link">About</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="start-project-section">
+            <form id="start-project-form">
+                <h3>Start a New Collabo</h3>
+                <label>Project Name:
+                    <input name="project-name" required >
+                </label>
+                <label>Project Genre:
+                    <input name="genre" required >
+                </label>
+                <label>Project Tempo:
+                    <input name="tempo" required type="number" placeholder="Beats Per Minute" min="5" max="400" >
+                </label>
+                <label> Project Time Signature:
+                    <select>
+                        <option>3/4</option>
+                        <option selected>4/4</option>
+                        <option>5/4</option>
+                        <option>6/8</option>
+                        <option>7/8</option>
+                        <option>12/8</option>
+                        <option disabled>───</option>
+                        <option>11/4</option>
+                        <option>11/8</option>
+                    </select>
+                </label>
+                <label> Project Key:
+                    <select>
+                        <option>B major</option>
+                        <option>B&#9837; major</option>
+                        <option>A major</option>
+                        <option>A&#9837; major</option>
+                        <option>G major</option>
+                        <option>G&#9837; major</option>
+                        <option>F&#9839; major</option>
+                        <option>F major</option>
+                        <option>E major</option>
+                        <option>E&#9837; major</option>
+                        <option>D major</option>
+                        <option>D&#9837; major</option>
+                        <option>C&#9839; major</option>
+                        <option selected>C major</option>
+                        <option>C&#9837; major</option>
+                        <option disabled>───────</option>
+                        <option>B minor</option>
+                        <option>B&#9837; minor</option>
+                        <option>A&#9839; minor</option>
+                        <option>A minor</option>
+                        <option>A&#9837; minor</option>
+                        <option>G&#9839; minor</option>
+                        <option>G minor</option>
+                        <option>F&#9839; minor</option>
+                        <option>F minor</option>
+                        <option>E minor</option>
+                        <option>E&#9837; minor</option>
+                        <option>D&#9839; minor</option>
+                        <option>D minor</option>
+                        <option>C&#9839; minor</option>
+                        <option>C minor</option>
+                    </select>
+                </label>
+                <div id="start-project-upload">
+                    <h4>Upload your first .mp3 track to get started.</h4>
+                    <p>Hint: You can upload more tracks after you start your project.</p>
+                    <input name="audio-input" type="file" required accept=".mp3">
+                    <input name="instrument" placeholder="Enter instrument name..." required>
+                </div>
+                <div id="start-button-container">
+                    <button id="start-project-button">Start Project</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    
+    <script type="module" src="start-project.js"></script>
+</body>
+</html>

@@ -1,5 +1,7 @@
 import { getProject, uploadAudio, updateTrack } from '../fetch-utils.js';
+import { checkAuth } from '../fetch-utils.js';
 
+checkAuth();
 
 // eslint-disable-next-line no-undef
 var playlist = WaveformPlaylist.init({

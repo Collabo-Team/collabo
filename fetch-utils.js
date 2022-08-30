@@ -2,6 +2,7 @@ const SUPABASE_URL = 'https://lhopwipdeoyzrdkhgnll.supabase.co';
 const SUPABASE_KEY =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxob3B3aXBkZW95enJka2hnbmxsIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjE0NDUxMDEsImV4cCI6MTk3NzAyMTEwMX0.CqslQ0D0NOtKTdAzI7cJ1mdy_MBewH_F_jVzrMWaNvg';
 
+
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 /* Auth related functions */
@@ -44,6 +45,7 @@ export async function signOutUser() {
 }
 
 /* Data functions */
+
 
 
 
@@ -154,4 +156,11 @@ export async function getProject(id) {
     }
     return response.data;
 }
+
+export async function getProjects() {
+    const response = await client.from('projects').select('*');
+    return response.data;
+}
+
+// track.name
 
