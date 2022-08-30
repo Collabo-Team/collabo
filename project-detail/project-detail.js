@@ -1,4 +1,6 @@
 // eslint-disable-next-line no-undef
+import { downloadTrack } from '../fetch-utils.js';
+
 var playlist = WaveformPlaylist.init({
     container: document.getElementById('playlist'),
     samplesPerPixel: 1000,
@@ -79,3 +81,4 @@ uploadForm.addEventListener('submit', async (e) => {
     //     displayProject();
     // }
 });
+

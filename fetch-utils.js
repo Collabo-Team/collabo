@@ -44,3 +44,9 @@ export async function signOutUser() {
 }
 
 /* Data functions */
+export async function downloadAllTracksByProjectId(project_id) {
+    return await client.from('tracks').select('*').match({ project_id }).download(`user-files/${tracks.url}`);
+}
+    
+    // 
+// }
