@@ -54,3 +54,28 @@ container.addEventListener('wheel', function(e) {
         e.preventDefault();
     }
 });
+
+// UPLOAD TRACK FORM
+const uploadForm = document.getElementById('upload-form');
+
+uploadForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(uploadForm);
+    const audioInput = formData.get('audio-input');
+    const instrument = formData.get('instrument');
+
+    // const response = await audioUpload(audioInput, instrument);
+
+    uploadForm.reset();
+
+    console.log(audioInput, instrument);
+
+    // const error = response.error;
+
+    // if (error) {
+    //     console.log(error.message);
+    // } else {
+    //     displayProject();
+    // }
+});
