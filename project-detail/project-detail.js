@@ -79,3 +79,31 @@ uploadForm.addEventListener('submit', async (e) => {
     //     displayProject();
     // }
 });
+
+// RENDER PROJECT
+export function renderProject(project) {
+    const div = document.createElement('div');
+
+    const h2 = document.createElement('h2');
+    h2.classList.add('project-name');
+
+    const metadataDiv = document.createElement('div');
+    metadataDiv.classList.add('track-metadata');
+
+    const genre = document.createElement('p');
+    const tempo = document.createElement('p');
+    const timeSignature = document.createElement('p');
+    const key = document.createElement('p');
+
+    
+    h2.textContent = project.name;
+    genre.textContent = project.genre;
+    tempo.textContent = project.tempo;
+    timeSignature.textContent = project.time_signature;
+    key.textContent = project.key;
+    
+    metadataDiv.append(genre, tempo, timeSignature, key);
+    div.append(h2, metadataDiv);
+
+    return div;
+}
