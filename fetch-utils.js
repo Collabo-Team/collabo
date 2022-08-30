@@ -1,7 +1,5 @@
 const SUPABASE_URL = 'https://lhopwipdeoyzrdkhgnll.supabase.co';
-const SUPABASE_KEY =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxob3B3aXBkZW95enJka2hnbmxsIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjE0NDUxMDEsImV4cCI6MTk3NzAyMTEwMX0.CqslQ0D0NOtKTdAzI7cJ1mdy_MBewH_F_jVzrMWaNvg';
-
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxob3B3aXBkZW95enJka2hnbmxsIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjE0NDUxMDEsImV4cCI6MTk3NzAyMTEwMX0.CqslQ0D0NOtKTdAzI7cJ1mdy_MBewH_F_jVzrMWaNvg';
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
@@ -80,9 +78,9 @@ export async function signOutUser() {
 
 
 
-
-
-
+export async function newProject(project) {
+    return await client.from('projects').insert(project).single();
+}
 
 export async function updateTrack(track) {
     return await client.from('tracks').insert(track);
@@ -106,6 +104,14 @@ export async function uploadAudio(bucketName, audioName, audioFile) {
 
     return url;
 }
+
+
+// export async function downloadTrack() {
+//     const response = await client.storage
+//         .from('files-bucket')
+//         .download('user-files/audioName');
+//     console.log('!!', response.data);
+// }
 
 
 
@@ -163,4 +169,3 @@ export async function getProjects() {
 }
 
 // track.name
-

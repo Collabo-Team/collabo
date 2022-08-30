@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Megrim&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <link rel="stylesheet" href="start-project.css" />
     <link rel="icon" type="image/x-icon" href="../assets/collabo-icon.png">
     <title>Collabo | Start a Project</title>
@@ -35,7 +36,7 @@
                     <input name="tempo" required type="number" placeholder="Beats Per Minute" min="5" max="400" >
                 </label>
                 <label> Project Time Signature:
-                    <select>
+                    <select name="time-signature">
                         <option>3/4</option>
                         <option selected>4/4</option>
                         <option>5/4</option>
@@ -48,7 +49,7 @@
                     </select>
                 </label>
                 <label> Project Key:
-                    <select>
+                    <select name="key-signature">
                         <option>B major</option>
                         <option>B&#9837; major</option>
                         <option>A major</option>
@@ -85,13 +86,16 @@
                 <div id="start-project-upload">
                     <h4>Upload your first .mp3 track to get started.</h4>
                     <p>Hint: You can upload more tracks after you start your project.</p>
-                    <input name="audio-input" type="file" required accept=".mp3">
+                    <input name="audio-input" type="file" required accept=".mp3"> 
                     <input name="instrument" placeholder="Enter instrument name..." required>
                 </div>
                 <div id="start-button-container">
                     <button id="start-project-button">Start Project</button>
                 </div>
             </form>
+            <button class="download">Download</button>
+            <a href="https://lhopwipdeoyzrdkhgnll.supabase.co/storage/v1/object/public/files-bucket/user-files/126219bass.mp3" download>click
+            </a>
         </section>
     </main>
     
