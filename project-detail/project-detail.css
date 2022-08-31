@@ -75,6 +75,7 @@ nav a {
 }
 
 .project-name {
+    text-align: center;
     margin-top: 48px;
     font-size: 2em;
 }
