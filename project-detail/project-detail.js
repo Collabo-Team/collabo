@@ -109,48 +109,6 @@ let project = null;
 // UPLOAD TRACK FORM
 const uploadForm = document.getElementById('upload-form');
 
-uploadForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(uploadForm);
-    // const audioInput = formData.get('audio-input');
-    // const instrument = formData.get('instrument');
-
-    const trackUpload = {
-        instrument: formData.get('instrument')
-    };
-
-    const audioFile = formData.get('audio-input');
-    if (audioFile.size) {
-        const audioName = `${project.id}/${Math.floor(Math.random() * 1000000)}${audioFile.name}`;
-        const url = await uploadAudio(
-            'files-bucket',
-            audioName,
-            audioFile
-        );
-        trackUpload.folder = audioName;
-        trackUpload.url = url;
-        trackUpload.project_id = project.id;
-        await updateTrack(trackUpload);
-
-    }
-
-
-    // const response = await audioUpload(audioInput, instrument);
-
-    uploadForm.reset();
-
-    // console.log(audioInput, instrument);
-
-    // const error = response.error;
-
-    // if (error) {
-    //     console.log(error.message);
-    // } else {
-    //     displayProject();
-    // }
-});
-
 function downloadBlob(blob, instrument) {
     const a = document.createElement('a');
     const url = window.URL.createObjectURL(blob);
@@ -181,6 +139,32 @@ async function loadDetails() {
     project = await getProject(params.get('id'));
     const projectDisplay = renderProject(project);
     projectContainer.append(projectDisplay);
+
+    uploadForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(uploadForm);
+    
+        const trackUpload = {
+            instrument: formData.get('instrument')
+        };
+    
+        const audioFile = formData.get('audio-input');
+        if (audioFile.size) {
+            const audioName = `${project.id}/${Math.floor(Math.random() * 1000000)}${audioFile.name}`;
+            const url = await uploadAudio(
+                'files-bucket',
+                audioName,
+                audioFile
+            );
+            trackUpload.folder = audioName;
+            trackUpload.url = url;
+            trackUpload.project_id = project.id;
+            await updateTrack(trackUpload);
+    
+        }
+        uploadForm.reset();
+    });
+
 }
 loadDetails();
 
