@@ -180,7 +180,7 @@ export async function getTrack(folderName) {
 
 export async function getProject(id) {
     // from the roster table, select a single player who has the matching id
-    const response = await client.from('projects').select('*').match({ id }).single();
+    const response = await client.from('projects').select('*, tracks(*)').match({ id }).single();
     // and return the response
     if (response.error) {
         throw new Error(response.error.message);

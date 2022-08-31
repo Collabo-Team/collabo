@@ -37,20 +37,20 @@ playlist
             name: 'Drums',
         },
     ])
-    .then(function() {
+    .then(function () {
         var ee = playlist.getEventEmitter();
-        document.getElementById('play-button').addEventListener('click', function() {
+        document.getElementById('play-button').addEventListener('click', function () {
             ee.emit('play');
         });
 
-        document.getElementById('pause-button').addEventListener('click', function() {
+        document.getElementById('pause-button').addEventListener('click', function () {
             ee.emit('pause');
         });
     });
 
 // HORIZONTAL SCROLLING INSIDE WAVEFORM
 const container = document.querySelector('.playlist-tracks');
-container.addEventListener('wheel', function(e) {
+container.addEventListener('wheel', function (e) {
     if (e.deltaY > 0) {
         container.scrollLeft += 100;
         e.preventDefault();
@@ -98,7 +98,7 @@ export function renderProject(project) {
 
 const projectContainer = document.getElementById('project-container');
 
-    // const audioButtons = document.getElementById('audio-buttons');
+// const audioButtons = document.getElementById('audio-buttons');
 
 // calling the displayProjectById function to keep squiggles away until 
 // we link to the rest of the project files 
@@ -111,18 +111,15 @@ const uploadForm = document.getElementById('upload-form');
 
 uploadForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData(uploadForm);
     // const audioInput = formData.get('audio-input');
     // const instrument = formData.get('instrument');
-    project = await getProject(project);
-    
-    console.log(project);
-    
+
     const trackUpload = {
         instrument: formData.get('instrument')
     };
-    
+
     const audioFile = formData.get('audio-input');
     if (audioFile.size) {
         const audioName = `${project.id}/${Math.floor(Math.random() * 1000000)}${audioFile.name}`;
@@ -135,38 +132,54 @@ uploadForm.addEventListener('submit', async (e) => {
         trackUpload.url = url;
         trackUpload.project_id = project.id;
         await updateTrack(trackUpload);
-            
+
     }
-        
-        
-        // const response = await audioUpload(audioInput, instrument);
-        
+
+
+    // const response = await audioUpload(audioInput, instrument);
+
     uploadForm.reset();
-        
-        // console.log(audioInput, instrument);
-        
-        // const error = response.error;
-        
-        // if (error) {
-            //     console.log(error.message);
-            // } else {
-                //     displayProject();
-                // }
+
+    // console.log(audioInput, instrument);
+
+    // const error = response.error;
+
+    // if (error) {
+    //     console.log(error.message);
+    // } else {
+    //     displayProject();
+    // }
 });
+
+function downloadBlob(blob, instrument) {
+    const a = document.createElement('a');
+    const url = window.URL.createObjectURL(blob);
+    a.href = url;
+    a.download = project.name + '-' + instrument + '.mp3';
+    a.click();
+    window.URL.revokeObjectURL(url);
+}
+
+async function downloadTrack(track) {
+
+    const response = await getTrack(track.folder);
+    const blob = response.data;
+    downloadBlob(blob, track.instrument);
+}
 
 const downloadButton = document.getElementById('download-button');
 downloadButton.addEventListener('click', async () => {
-    console.log(project);
+    Promise.all(project.tracks.map(downloadTrack));
     // const file = await getTrack();
-    
+
     //set to a variable blob, and then access blob.property
 });
 
-            
+
 const params = new URLSearchParams(window.location.search);
 async function loadDetails() {
-    const details = await getProject(params.get('id'));
-    const projectDisplay = renderProject(details);
+    project = await getProject(params.get('id'));
+    const projectDisplay = renderProject(project);
     projectContainer.append(projectDisplay);
 }
 loadDetails();
