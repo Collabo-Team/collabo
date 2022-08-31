@@ -91,13 +91,6 @@ export function renderProject(project) {
     return div;
 }
 
-// The function below is for displaying the project detail page
-// it feeds data from the fetch util into the render util
-// and prepends it to the audio-buttons HTML element
-
-
-
-
 // UPLOAD TRACK FORM
 const uploadForm = document.getElementById('upload-form');
 
