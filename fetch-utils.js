@@ -106,15 +106,6 @@ export async function uploadAudio(bucketName, audioName, audioFile) {
 }
 
 
-// export async function downloadTrack() {
-//     const response = await client.storage
-//         .from('files-bucket')
-//         .download('user-files/audioName');
-//     console.log('!!', response.data);
-// }
-
-
-
 
 
 
