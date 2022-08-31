@@ -134,6 +134,12 @@ export async function uploadAudio(bucketName, audioName, audioFile) {
 export async function getTrack(folderName) {
     return await client.storage.from('files-bucket').download(folderName);
 }
+
+export async function getTracksByProject(project_id) {
+    const response = await client.from('tracks').select('*').match({ project_id });
+    console.log('response.data', response.data);
+    return response.data;
+}
 // project.folderName a.k.a. project_id
 // project.tracks
 // project.instrument

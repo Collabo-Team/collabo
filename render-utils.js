@@ -16,3 +16,7 @@ export function renderProject(project) {
 
     return a;
 }
+
+// export function renderTrack(track) {
+//     const div = document.createElement('div');
+// }

@@ -1,4 +1,4 @@
-import { getProject, uploadAudio, updateTrack, getTrack } from '../fetch-utils.js';
+import { getProject, uploadAudio, updateTrack, getTrack, getTracksByProject } from '../fetch-utils.js';
 import { checkAuth } from '../fetch-utils.js';
 
 checkAuth();
@@ -22,17 +22,22 @@ var playlist = WaveformPlaylist.init({
     },
 });
 
+let renderedPlaylist = {
+    src: '',
+    name: ''
+};
+
 playlist
     .load([
         {
-            src: '../assets/audio-demos/demo-1/guitar.mp3',
-            name: 'Guitar',
-        },
-        {
-            src: '../assets/audio-demos/demo-1/bass.mp3',
-            name: 'Bass',
-        },
-        {
+        //     src: renderedPlaylist.src
+        //     name: 'Guitar',
+        // },
+        // {
+        //     src: '../assets/audio-demos/demo-1/bass.mp3',
+        //     name: 'Bass',
+        // },
+        // {
             src: '../assets/audio-demos/demo-1/drums.mp3',
             name: 'Drums',
         },
@@ -46,7 +51,13 @@ playlist
         document.getElementById('pause-button').addEventListener('click', function () {
             ee.emit('pause');
         });
+        
     });
+//const tracks = getTracks()
+// for (let track of tracks) {
+    // playlist.track.src = `${track.src}`
+    // playlist.track.name = `${track.}
+
 
 // HORIZONTAL SCROLLING INSIDE WAVEFORM
 const container = document.querySelector('.playlist-tracks');
@@ -181,6 +192,30 @@ async function loadDetails() {
     project = await getProject(params.get('id'));
     const projectDisplay = renderProject(project);
     projectContainer.append(projectDisplay);
+    async function displayTracks() {
+        const tracks = await getTracksByProject(project.id);
+        console.log('tracks', tracks);
+        const playlistEl = document.getElementById('playlist');
+        for (let track of tracks) {
+            const newTrack = renderTrack(track);
+            playlistEl.append(newTrack);
+        }
+    }
+    
+    displayTracks();
+
 }
 loadDetails();
 
+//make a container 'playlist', grab it
+
+//displayTracksFunction
+    //innerhtml = ''
+    //await gettracks
+
+    //for (let track of tracks) {
+        //const newtrack = renderTrack(track)
+        //playlist.append.(newTrack)
+    //}
+//getTracks
+//
