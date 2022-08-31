@@ -1,0 +1,19 @@
+:root {
+    --logo-font: 'Megrim', cursive;
+    --main-font: 'Space Mono', monospace;
+
+}
+
+.logo {
+    font-family: var(--logo-font);
+    font-size: 2.4em;
+}
+
+#collabo-logo,
+#sign-in {
+    margin: 0 auto;
+}
+
+#auth-header.title {
+    font-family: var(--main-font);
+}
