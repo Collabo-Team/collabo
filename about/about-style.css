@@ -120,10 +120,18 @@ nav a {
     max-width: 150px;
     margin: auto;
     text-align: center;
+    text-decoration: none;
 }
 
 .name {
     text-align: center;
+    text-decoration: none;
+}
+
+.icons {
+    height: 20px;
+    width: 20px;
+    margin: 5px;
     text-decoration: none;
 }
 
