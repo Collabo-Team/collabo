@@ -1,11 +1,18 @@
+:root {
+    --logo-font: 'Megrim', cursive;
+    --main-font: 'Space Mono', monospace;
+
+}
+
 form {
     width: 100%;
     margin: auto;
     max-width: 500px;
     border: 1px solid;
-    background: var(--offset-color);
+    background: linear-gradient(45deg, rgba(183, 227, 180, 1) 0%, rgba(86, 149, 137, 1) 66%);
     padding: 20px;
 
+    font-family: var(--main-font);
     display: grid;
     gap: 20px;
 }
@@ -60,6 +67,10 @@ form button {
     font-weight: bold;
     color: white;
 }
+
+/* form button:hover {
+    background-color: rgb(183, 227, 180);
+} */
 
 form button:disabled {
     opacity: 0.5;

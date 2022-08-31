@@ -16,30 +16,40 @@
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/global.css" />
     <link rel="stylesheet" href="../styles/form.css" />
+    <link rel="stylesheet" href="/auth/auth.css">
     <title>Auth</title>
 </head>
 
 <body>
     <header class="page-header">
-        <img class="logo" src="/assets/html_css_js.png">
-        <p id="auth-header" class="title">Sign In</p>
+        <div id="collabo-logo">
+            <p class="logo">Collabo</p>
+            <img id="logo-img" src="../assets/collabo-icon-500-trx-black.png" alt="">
+        </div>
+
     </header>
 
     <main>
-        <form id="auth-form">
-            <label>
-                Email
-                <input type="email" name="email" required />
-            </label>
-            <label>
-                Password
-                <input type="password" name="password" required />
-            </label>
-            <button></button>
-            <p class="error"></p>
-            <a href="./"></a>
-        </form>
 
+        <div class="form-content">
+                    <div id="sign-in-p">
+                        <p id="auth-header" class="title">Sign In</p>
+                    </div>
+
+            <form id="auth-form">
+                <label>
+                    Email
+                    <input type="email" name="email" required />
+                </label>
+                <label>
+                    Password
+                    <input type="password" name="password" required />
+                </label>
+                <button id="sign-in-btn" class="collabo-btn">Sign in</button>
+                <p class="error"></p>
+                <a href="./"></a>
+            </form>
+        </div>
     </main>
 
     <footer>&copy;2022 Alchemy Software Developer</footer>
