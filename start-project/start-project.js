@@ -41,7 +41,7 @@ startForm.addEventListener('submit', async (event) => {
 
     startForm.reset();
 
-
+    window.location.replace(`../project-detail/?id=${project.id}`);
 });
 
 
