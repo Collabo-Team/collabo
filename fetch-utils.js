@@ -152,13 +152,22 @@ export async function getTracksByProject(project_id) {
 
 
 
-export function updateTrackInRealtime(handleInsert, playlist) {
-    client.from('tracks').on('INSERT', () => {
-        playlist.newtrack();
-    }).subscribe();
+export function updateTrackInRealtime(handleInsert) {
+    client.from('tracks').on('INSERT', handleInsert).subscribe();
     console.log('listening to realtime');
 }
 
+
+// IN PROGRESS WITH LOGAN
+// export function updateTrackInRealtime(handleInsert, playlist) {
+//     client
+//         .from('tracks')
+//         .on('INSERT', () => {
+//             playlist.newtrack();
+//         })
+//         .subscribe();
+//     console.log('listening to realtime');
+// }
 
 
 
