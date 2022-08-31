@@ -113,20 +113,36 @@ export async function uploadAudio(bucketName, audioName, audioFile) {
 //     console.log('!!', response.data);
 // }
 
-export async function downloadAllTracksByProjectId() {
-    const response = await client.storage.from('files-bucket').download('demo-files/bass.mp3');
-    return response.data;
-    //returns a blob. 
-    //wtf do we do with a blob?
-    //how do we make this dynamic?
-}
+// export async function downloadAllTracksByProjectId() {
+//     const response = await client.storage.from('files-bucket').download('folder/file.mp3');
+//     console.log(response.data);
+//     return response.data;
+//     //returns a blob. 
+//     //wtf do we do with a blob?
+//     //how do we make this dynamic?
+// }
 
 // export async function downloadAllTracksByProjectId(project_id) {
-   // const response = await client.from('tracks').select('(*)').match({ project.id }).download(`${folder name or project_id}, '*'`)
+   // const response = await client.from('tracks').select('(*)').match({ project.id }).download(`${folder name a.k.a. project_id}, '*'`)
 //}
+
+// export async function downloadAllTracksInFolder(folderName) {
+//     const response = await client.storage.from('files-bucket').download(`${folderName}/${project.tracks}`);
+//     return response.data
+// }
+
+export async function getTrack(folderName) {
+    return await client.storage.from('files-bucket').download(folderName);
+}
+// project.folderName a.k.a. project_id
+// project.tracks
+// project.instrument
+// project.folder
 
 //we want to go into the bucket and download all the files associated with a given project
 
+//if createProject creates a folder in the bucket whose name matches project_Id column in tracks tables, then the above code should work to access the files in that folder.
+//this will probably return a blob, or an array of blobs, so we'll still need to figure out how to work with that
 
 
 

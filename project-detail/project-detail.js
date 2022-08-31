@@ -1,4 +1,4 @@
-import { getProject, uploadAudio, updateTrack, downloadAllTracksByProjectId } from '../fetch-utils.js';
+import { getProject, uploadAudio, updateTrack, getTrack } from '../fetch-utils.js';
 import { checkAuth } from '../fetch-utils.js';
 
 checkAuth();
@@ -102,7 +102,7 @@ const projectContainer = document.getElementById('project-container');
 // calling the displayProjectById function to keep squiggles away until 
 // we link to the rest of the project files 
 
-
+let project = null;
 
 // UPLOAD TRACK FORM
 const uploadForm = document.getElementById('upload-form');
@@ -113,7 +113,7 @@ uploadForm.addEventListener('submit', async (e) => {
     const formData = new FormData(uploadForm);
     // const audioInput = formData.get('audio-input');
     // const instrument = formData.get('instrument');
-    const project = await getProject(project);
+    project = await getProject(project);
     
     console.log(project);
 
@@ -154,6 +154,8 @@ uploadForm.addEventListener('submit', async (e) => {
 
 const downloadButton = document.getElementById('download-button');
 downloadButton.addEventListener('click', async () => {
-    const file = await downloadAllTracksByProjectId();
-    console.log(file);
+    console.log(project);
+    // const file = await getTrack();
+    
+    //set to a variable blob, and then access blob.property
 });
