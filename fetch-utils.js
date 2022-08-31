@@ -113,7 +113,10 @@ export async function uploadAudio(bucketName, audioName, audioFile) {
 //     console.log('!!', response.data);
 // }
 
-
+export async function downloadAllTracksByProjectId() {
+    const response = await client.storage.from('files-bucket').download('demo-files/bass.mp3');
+    return response.data;
+}
 
 
 

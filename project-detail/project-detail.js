@@ -1,4 +1,4 @@
-import { getProject, uploadAudio, updateTrack } from '../fetch-utils.js';
+import { getProject, uploadAudio, updateTrack, downloadAllTracksByProjectId } from '../fetch-utils.js';
 import { checkAuth } from '../fetch-utils.js';
 
 checkAuth();
@@ -95,22 +95,13 @@ export function renderProject(project) {
 // it feeds data from the fetch util into the render util
 // and prepends it to the audio-buttons HTML element
 
-async function displayProjectById(projectId) {
+const projectContainer = document.getElementById('project-container');
 
     // const audioButtons = document.getElementById('audio-buttons');
-    const projectContainer = document.getElementById('project-container');
-
-    const loadProject = await getProject(projectId);
-
-    const newProject = renderProject(loadProject);
-
-    // audioButtons.prepend(newProject);
-    projectContainer.append(newProject);
-}
 
 // calling the displayProjectById function to keep squiggles away until 
 // we link to the rest of the project files 
-displayProjectById(19);
+
 
 
 // UPLOAD TRACK FORM
@@ -161,3 +152,8 @@ uploadForm.addEventListener('submit', async (e) => {
     // }
 });
 
+const downloadButton = document.getElementById('download-button');
+downloadButton.addEventListener('click', async () => {
+    const file = await downloadAllTracksByProjectId();
+    console.log(file);
+});
