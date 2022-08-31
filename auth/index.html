@@ -5,39 +5,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="icon" type="image/x-icon" href="../assets/alchemy-favicon.png" />
+    <link rel="icon" type="image/x-icon" href="../assets/collabo-icon-500-trx-black.png" />
     <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Megrim&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../assets/collabo-icon-500-x-black.png" />
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/global.css" />
     <link rel="stylesheet" href="../styles/form.css" />
+    <link rel="stylesheet" href="/auth/auth.css">
     <title>Auth</title>
 </head>
 
 <body>
     <header class="page-header">
-        <img class="logo" src="/assets/html_css_js.png">
-        <p id="auth-header" class="title">Sign In</p>
+        <div id="collabo-logo">
+            <p class="logo">Collabo</p>
+            <img id="logo-img" src="../assets/collabo-icon-500-trx-black.png" alt="">
+        </div>
+
     </header>
 
     <main>
-        <form id="auth-form">
-            <label>
-                Email
-                <input type="email" name="email" required />
-            </label>
-            <label>
-                Password
-                <input type="password" name="password" required />
-            </label>
-            <button></button>
-            <p class="error"></p>
-            <a href="./"></a>
-        </form>
 
+        <div class="form-content">
+                    <div id="sign-in-p">
+                        <p id="auth-header" class="title">Sign In</p>
+                    </div>
+
+            <form id="auth-form">
+                <label>
+                    Email
+                    <input type="email" name="email" required />
+                </label>
+                <label>
+                    Password
+                    <input type="password" name="password" required />
+                </label>
+                <button id="sign-in-btn" class="collabo-btn">Sign in</button>
+                <p class="error"></p>
+                <a href="./"></a>
+            </form>
+        </div>
     </main>
 
     <footer>&copy;2022 Alchemy Software Developer</footer>
