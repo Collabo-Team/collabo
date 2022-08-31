@@ -1,6 +1,6 @@
 // importing other stuff, utility functions for:
 // working with supabase:
-import { checkAuth, signOutUser, getProjects } from './fetch-utils.js';
+import { checkAuth, signOutUser, getUser, getProjects } from './fetch-utils.js';
 import { renderProject } from './render-utils.js';
 // pure rendering (data --> DOM):
 
@@ -34,4 +34,16 @@ displayProjects();
 
 window.addEventListener('click', () => {
     checkAuth();
+});
+
+window.addEventListener('load', () => {
+    const signOut = document.getElementById('sign-out-link');
+    const user = getUser();
+
+    if (user) {
+        signOut.textContent = 'Sign-Out';
+
+    } else {
+        signOut.textContent = 'Sign-In';
+    }
 });
