@@ -1,5 +1,5 @@
-const SUPABASE_URL = '';
-const SUPABASE_KEY = '';
+const SUPABASE_URL = 'https://lhopwipdeoyzrdkhgnll.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxob3B3aXBkZW95enJka2hnbmxsIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjE0NDUxMDEsImV4cCI6MTk3NzAyMTEwMX0.CqslQ0D0NOtKTdAzI7cJ1mdy_MBewH_F_jVzrMWaNvg';
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
@@ -43,3 +43,129 @@ export async function signOutUser() {
 }
 
 /* Data functions */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export async function newProject(project) {
+    return await client.from('projects').insert(project).single();
+}
+
+export async function updateTrack(track) {
+    return await client.from('tracks').insert(track);
+}
+
+export async function uploadAudio(bucketName, audioName, audioFile) {
+    const bucket = client.storage.from(bucketName);
+
+    const response = await bucket.upload(audioName, audioFile, {
+        cacheControl: '3600',
+
+        upsert: true,
+    });
+
+    if (response.error) {
+        console.log(response.error);
+        return null;
+    }
+
+    const url = `${SUPABASE_URL}/storage/v1/object/public/${response.data.Key}`;
+
+    return url;
+}
+
+
+// export async function downloadTrack() {
+//     const response = await client.storage
+//         .from('files-bucket')
+//         .download('user-files/audioName');
+//     console.log('!!', response.data);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export async function getProject(id) {
+    // from the roster table, select a single player who has the matching id
+    const response = await client.from('projects').select('*').match({ id }).single();
+    // and return the response
+    if (response.error) {
+        throw new Error(response.error.message);
+    }
+    return response.data;
+}
+
+export async function getProjects() {
+    const response = await client.from('projects').select('*');
+    return response.data;
+}
+
+// track.name
