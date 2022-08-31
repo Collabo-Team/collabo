@@ -1,0 +1,143 @@
+:root {
+    --logo-font: 'Megrim', cursive;
+    --main-font: 'Space Mono', monospace;
+
+}
+
+/* GLOBAL STYLES */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--main-font);
+    /* display: grid;
+    grid-template-columns: 40% 20% 40%;
+    grid-template-rows: 15% 25% 20% 30%;
+    grid-column-gap: 0px;
+    grid-row-gap: 20px; */
+}
+
+button {
+    cursor: pointer;
+}
+
+/* HEADER */
+   
+header {
+    margin: 48px 48px 0 48px;
+}
+
+header p {
+    font-family: var(--logo-font);
+    font-size: 2.4em;
+}
+
+nav {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 75px;
+}
+
+nav a {
+    color: inherit;
+}
+
+.nav-link {
+    margin-left: 32px;
+    font-size: 1em;
+}
+
+.nav-links button {
+    margin-bottom: 48px;
+    font-family: var(--main-font);
+    padding: 10px 20px;
+    border-radius: .4em;
+    border: none;
+    color: white;
+    background: rgb(183,227,180);
+    background: linear-gradient(45deg, rgba(183,227,180,1) 0%, rgba(86,149,137,1) 66%);
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 10% 25% 40% 25%;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+
+main {
+    justify-content: center;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    justify-content: space-around;
+
+}
+
+
+.div-1 { 
+    grid-area: 2 / 2 / 3 / 5; 
+    text-align: center;
+    justify-content: space-around;
+}
+
+.mission-statement {
+    letter-spacing: 7px;
+}
+
+.div-2 { 
+    grid-area: 3 / 1 / 4 / 3; 
+    justify-content: space-between;
+}
+
+.div-3 { 
+    grid-area: 3 / 2 / 4 / 4; 
+}
+
+.div-4 { 
+    grid-area: 3 / 3 / 4 / 5; 
+}
+
+.div-5 { 
+    grid-area: 3 / 4 / 4 / 6; 
+}
+
+.div-6 { 
+    grid-area: 3 / 5 / 4 / 7; 
+}
+
+.image-linked {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    justify-content: center;
+}
+
+.name-linked {
+}
+
+.div-7 { 
+    grid-area: 4 / 2 / 5 / 7; 
+}
+
+.header-three {
+    justify-content: center;
+    align-items: center;
+
+}
+
+    
+    
+    
+    
