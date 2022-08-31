@@ -6,7 +6,7 @@ import { renderProject } from './render-utils.js';
 
 /*  "boiler plate" auth code */
 // checking if we have a user! (will redirect to auth if not):
-checkAuth();
+// checkAuth();
 // can optionally return the user:
 // const user = checkAuth();
 
@@ -31,3 +31,7 @@ async function displayProjects() {
 }
 
 displayProjects();
+
+window.addEventListener('click', () => {
+    checkAuth();
+});
