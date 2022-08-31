@@ -116,10 +116,16 @@ export async function uploadAudio(bucketName, audioName, audioFile) {
 export async function downloadAllTracksByProjectId() {
     const response = await client.storage.from('files-bucket').download('demo-files/bass.mp3');
     return response.data;
+    //returns a blob. 
+    //wtf do we do with a blob?
+    //how do we make this dynamic?
 }
 
+// export async function downloadAllTracksByProjectId(project_id) {
+   // const response = await client.from('tracks').select('(*)').match({ project.id }).download(`${folder name or project_id}, '*'`)
+//}
 
-
+//we want to go into the bucket and download all the files associated with a given project
 
 
 
