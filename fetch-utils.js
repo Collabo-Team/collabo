@@ -79,9 +79,9 @@ export async function getTracksByProject(project_id) {
     return response.data;
 }
 
-export function updateTrackInRealtime(handleInsert, playlist) {
+export function updateTrackInRealtime(handleInsert, playlist, project_id) {
     client
-        .from('tracks')
+        .from(`tracks:project_id=eq.${project_id}`)
         .on('INSERT', (e) => {
             playlist.load([{ src: e.new.url, name: e.new.instrument }]);
         })
@@ -101,4 +101,33 @@ export async function getProject(id) {
 export async function getProjects() {
     const response = await client.from('projects').select('*');
     return response.data;
+}
+
+// PROFILE FETCH FNS
+
+// export async function createProfile(profile) {
+//     return await client.from('profiles').insert(profile).single();
+// }
+
+export async function updateProfile(profile) {
+    return await client.from('profiles').insert(profile).single();
+}
+
+export async function uploadProfilePhoto(bucketName, fileName, imageFile) {
+    const bucket = client.storage.from(bucketName);
+
+    const response = await bucket.upload(fileName, imageFile, {
+        cacheControl: '3600',
+
+        upsert: true,
+    });
+
+    if (response.error) {
+        console.log(response.error);
+        return null;
+    }
+
+    const url = `${SUPABASE_URL}/storage/v1/object/public/${response.data.Key}`;
+
+    return url;
 }

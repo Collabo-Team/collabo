@@ -3,12 +3,14 @@ import {
     uploadAudio,
     updateTrack,
     getTrack,
-    updateTrackInRealtime
+    updateTrackInRealtime,
+    signOutUser
 } from '../fetch-utils.js';
 import { checkAuth } from '../fetch-utils.js';
 
 checkAuth();
-
+const signOutLink = document.getElementById('sign-out-link');
+signOutLink.addEventListener('click', signOutUser);
 // eslint-disable-next-line no-undef
 const playlist = WaveformPlaylist.init({
     container: document.getElementById('playlist'),
@@ -50,6 +52,7 @@ export function renderProject(project) {
     const metadataDiv = document.createElement('div');
     metadataDiv.classList.add('track-metadata');
 
+    
     const genre = document.createElement('p');
     const tempo = document.createElement('p');
     const timeSignature = document.createElement('p');
@@ -63,8 +66,8 @@ export function renderProject(project) {
 
     metadataDiv.append(genre, tempo, timeSignature, key);
     div.append(h2, metadataDiv);
-
     return div;
+   
 }
 
 const projectContainer = document.getElementById('project-container');
@@ -91,10 +94,8 @@ async function downloadTrack(track) {
 
 const downloadButton = document.getElementById('download-button');
 downloadButton.addEventListener('click', async () => {
+    project = await getProject(params.get('id'));
     Promise.all(project.tracks.map(downloadTrack));
-    // const file = await getTrack();
-
-    //set to a variable blob, and then access blob.property
 });
 
 const params = new URLSearchParams(window.location.search);
@@ -104,15 +105,15 @@ async function loadDetails() {
     const projectDisplay = renderProject(project);
     projectContainer.append(projectDisplay);
     await displayTracks(project.tracks);
-
+    
     uploadForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = new FormData(uploadForm);
-    
+        
         const trackUpload = {
             instrument: formData.get('instrument'),
         };
-    
+        
         const audioFile = formData.get('audio-input');
         if (audioFile.size) {
             const audioName = `${project.id}/${Math.floor(Math.random() * 1000000)}${audioFile.name}`;
@@ -147,5 +148,5 @@ async function displayTracks(tracks) {
         ee.emit('pause');
     });
 }
-updateTrackInRealtime(loadDetails, playlist);
+updateTrackInRealtime(loadDetails, playlist, params.get('id'));
 
