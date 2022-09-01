@@ -66,6 +66,11 @@ nav a {
     margin-bottom: 48px;
 }
 
+#contributors-container {
+    margin-top: 20px;
+    font-size: .5em;
+}
+
 .audio-player {
     display: flex;
     justify-content: center;
@@ -204,6 +209,10 @@ nav a {
     border: .1px solid black;
     font-size: .6em;
     border-radius: .5em;
+}
+
+.playlist .channel-wrapper.silent .channel {
+  opacity: 0.5;
 }
 
 #playlist i,
