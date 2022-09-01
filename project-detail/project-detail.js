@@ -3,12 +3,14 @@ import {
     uploadAudio,
     updateTrack,
     getTrack,
-    updateTrackInRealtime
+    updateTrackInRealtime,
+    signOutUser
 } from '../fetch-utils.js';
 import { checkAuth } from '../fetch-utils.js';
 
 checkAuth();
-
+const signOutLink = document.getElementById('sign-out-link');
+signOutLink.addEventListener('click', signOutUser);
 // eslint-disable-next-line no-undef
 const playlist = WaveformPlaylist.init({
     container: document.getElementById('playlist'),

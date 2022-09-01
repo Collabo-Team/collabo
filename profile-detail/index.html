@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../styles/global.css" />
     <link rel="stylesheet" href="profile-detail.css">
     <link rel="icon" type="image/x-icon" href="assets/collabo-icon-500-trx-black.png">
-    <title>Collabo | Profile Update</title>
+    <title>Collabo | Edit Profile</title>
 </head>
 
 <body>
@@ -33,6 +33,7 @@
                 </a>
                 <a href="/" class="nav-link">Projects</a>
                 <a href="../about" class="nav-link">About</a>
+                <a id="sign-out-link" href="/auth" class="nav-link">Sign-Out</a>
             </div>
         </nav>
     </header>
@@ -74,13 +75,10 @@
                         <fieldset id="upload-photo">
                             <p for="profile-image">Upload photo:
                                 <input id="image-file" type="file" name="image-file" method="POST" accept="image/*">
-                                <label for="image-name">Image</label>
                             </p>
                         </fieldset>
                         <fieldset>
                             <button id="update-button" class="input-element">Update</button>
-                                <p class="error"></p>
-                                <a href="./"></a>
                         </fieldset>
                     </form>
                 </section> 

@@ -1,18 +1,10 @@
-import { updateProfile, uploadProfilePhoto } from '../fetch-utils.js';
+import { updateProfile, uploadProfilePhoto, signOutUser } from '../fetch-utils.js';
+
+const signOutLink = document.getElementById('sign-out-link');
+signOutLink.addEventListener('click', signOutUser);
 
 const profileForm = document.getElementById('profile-form');
-const changeType = profileForm.querySelector('a');
-const errorDisplay = profileForm.querySelector('.error');
-const uploadPhoto = profileForm.querySelector('#upload-photo');
-const updateButton = profileForm.querySelector('#update-button');
-
-
-
 const params = new URLSearchParams(location.search);
-const redirectUrl = params.get('redirectUrl') || '../';
-
-// const user = getUser();
-// if (!user) location.replace('../');
 
 profileForm.addEventListener('submit', async (e) => {
     e.preventDefault();
