@@ -28,16 +28,6 @@ const playlist = WaveformPlaylist.init({
     },
 });
 
-// let renderedPlaylist = {
-//     src: '',
-//     name: ''
-// };
-
-//const tracks = getTracks()
-// for (let track of tracks) {
-// playlist.track.src = `${track.src}`
-// playlist.track.name = `${track.}
-
 // HORIZONTAL SCROLLING INSIDE WAVEFORM
 const container = document.querySelector('.playlist-tracks');
 container.addEventListener('wheel', function (e) {
@@ -53,7 +43,6 @@ container.addEventListener('wheel', function (e) {
 // RENDER PROJECT
 export function renderProject(project) {
     const div = document.createElement('div');
-    // const div = document.createDocumentFragment();
 
     const h2 = document.createElement('h2');
     h2.classList.add('project-name');
@@ -75,20 +64,10 @@ export function renderProject(project) {
     metadataDiv.append(genre, tempo, timeSignature, key);
     div.append(h2, metadataDiv);
 
-    // console.log(renderProject(19));
     return div;
 }
 
-// The function below is for displaying the project detail page
-// it feeds data from the fetch util into the render util
-// and prepends it to the audio-buttons HTML element
-
 const projectContainer = document.getElementById('project-container');
-
-// const audioButtons = document.getElementById('audio-buttons');
-
-// calling the displayProjectById function to keep squiggles away until
-// we link to the rest of the project files
 
 let project = null;
 
@@ -118,8 +97,6 @@ downloadButton.addEventListener('click', async () => {
     //set to a variable blob, and then access blob.property
 });
 
-const playlistEl = document.getElementById('playlist');
-
 const params = new URLSearchParams(window.location.search);
 async function loadDetails() {
     projectContainer.textContent = '';
@@ -127,7 +104,6 @@ async function loadDetails() {
     const projectDisplay = renderProject(project);
     projectContainer.append(projectDisplay);
     await displayTracks(project.tracks);
-    console.log('loadDetails', project.tracks);
 
     uploadForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -156,15 +132,12 @@ const playButton = document.getElementById('play-button');
 const pauseButton = document.getElementById('pause-button');
 
 async function displayTracks(tracks) {
-    // playlistEl.textContent = '';
     const loadList = [];
     for (const track of tracks) {
         loadList.push({ src: track.url, name: track.instrument });
     }
-    
-    console.log('tracks in displayTracks', loadList);
+
     await playlist.load(loadList);
-    console.log('after', loadList);
     const ee = playlist.getEventEmitter();
     playButton.addEventListener('click', () => {
         ee.emit('play');
@@ -174,13 +147,5 @@ async function displayTracks(tracks) {
         ee.emit('pause');
     });
 }
+updateTrackInRealtime(loadDetails, playlist);
 
-updateTrackInRealtime(loadDetails);
-
-//listen for insert on track table with project id of current project.
-//listening on a table linked by a foreign key
-//on track, take information and feed it into
-//projects.tracks.push
-//playlist.track.load
-// playlist.load([{ src: '../assets/audio-demos/demo-1/drums.mp3',
-// name: 'Drums' }]);
