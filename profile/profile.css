@@ -1,0 +1,23 @@
+#default-avatar {
+    height: 100px;
+    width: auto;
+}
+
+h3 {
+    text-align: center;
+}
+
+#instruments-default-dd {
+    color: rgba(82, 82, 82, 0.055);
+}
+
+#save-btn {
+    display: flex;
+    background: linear-gradient(45deg, rgba(183, 227, 180, 1) 0%, rgba(86, 149, 137, 1) 66%);
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.4em;
+}

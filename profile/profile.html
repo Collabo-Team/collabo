@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script> -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Megrim&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script> -->
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/form.css">
+    <link rel="stylesheet" href="profile.css" />
+    <link rel="icon" type="image/x-icon" href="../assets/collabo-icon-500-trx-black.png">
+    <title>Collabo | Start a Project</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <p class="logo">Collabo</p>
+            <div class="nav-links">
+                <a href="../start-project"><button>Start a Collabo</button></a>
+                <a href="/" class="nav-link">Projects</a>
+                <a href="../about" class="nav-link">About</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="start-project-section">
+            <form id="profile-form">
+                <h3>Edit your user profile</h3>
+                <label>Username:
+                    <input name="username" required>
+                </label>
+                
+                <label>Where are you from?
+                    <input type="text">
+                </label>
+                
+                <label>Instruments played:
+                    <select name="instruments" id="instruments">Placeholder text
+                        <option value="0" id="instruments-default-dd">Select from the list...</option>
+                        <option value="1">brass</option>
+                        <option value="2">percussion</option>
+                        <option value="3">strings</option>
+                        <option value="4">guitar</option>
+                        <option value="5">bass</option>
+                        <option value="6">keyboard/piano</option>
+                        <option value="7">DJ</option>
+                        <option value="8">harmonica</option>
+                        <option value="9">accordion</option>
+                        <option value="10">other</option>
+                    </select>
+                </label>
+                <input type="file" name="avatar" id="avatar-input" placeholder="../assets/" accept="image/*">
+                <img id="default-avatar" src="../assets/collabo-icon-500-trx-black.png" alt="">
+<!-- 
+                <label>Personal bio:
+                    <input name="bio" required placeholder="Write a few sentences about yourself..." />
+                </label> -->
+                
+                <div id="save-btn-container">
+                    <button id="save-btn">Save profile</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script type="module" src="profile.js"></script>
+</body>
+
+</html>
