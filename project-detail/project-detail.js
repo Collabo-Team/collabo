@@ -91,10 +91,8 @@ async function downloadTrack(track) {
 
 const downloadButton = document.getElementById('download-button');
 downloadButton.addEventListener('click', async () => {
+    project = await getProject(params.get('id'));
     Promise.all(project.tracks.map(downloadTrack));
-    // const file = await getTrack();
-
-    //set to a variable blob, and then access blob.property
 });
 
 const params = new URLSearchParams(window.location.search);
@@ -104,15 +102,15 @@ async function loadDetails() {
     const projectDisplay = renderProject(project);
     projectContainer.append(projectDisplay);
     await displayTracks(project.tracks);
-
+    
     uploadForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = new FormData(uploadForm);
-    
+        
         const trackUpload = {
             instrument: formData.get('instrument'),
         };
-    
+        
         const audioFile = formData.get('audio-input');
         if (audioFile.size) {
             const audioName = `${project.id}/${Math.floor(Math.random() * 1000000)}${audioFile.name}`;
