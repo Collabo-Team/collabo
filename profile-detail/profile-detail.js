@@ -38,33 +38,3 @@ profileForm.addEventListener('submit', async (e) => {
 
      profileForm.reset();
 });
-
-    // const response = await updateProfile( {
-    //     first_name: data.get('first-name-input'),
-    //     last_name: data.get('last-name-input'),
-    //     user_name: data.get('user-name'),
-    //     bio: data.get('bio'),
-        
-    // });
-    
-    // const profileUpdate = response.data;
-    // const photoName = {
-        
-    // };
-    
-   
-    //     console.log('response', response);
-    //     response.image_file = path;
-    //     // photoName.url = url;
-    //     await updateProfile(photoName);
-    // }
-    //     profileForm.reset();
-
-    //     // window.location.replace('../');
-    // });
-
-
-
-
-
-

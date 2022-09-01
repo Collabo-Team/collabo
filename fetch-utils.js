@@ -79,9 +79,9 @@ export async function getTracksByProject(project_id) {
     return response.data;
 }
 
-export function updateTrackInRealtime(handleInsert, playlist) {
+export function updateTrackInRealtime(handleInsert, playlist, project_id) {
     client
-        .from('tracks')
+        .from(`tracks:project_id=eq.${project_id}`)
         .on('INSERT', (e) => {
             playlist.load([{ src: e.new.url, name: e.new.instrument }]);
         })
