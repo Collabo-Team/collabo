@@ -1,7 +1,4 @@
-import { updateProfile, uploadProfilePhoto, signOutUser } from '../fetch-utils.js';
-
-const signOutLink = document.getElementById('sign-out-link');
-signOutLink.addEventListener('click', signOutUser);
+import { updateProfile, uploadProfilePhoto } from '../fetch-utils.js';
 
 const profileForm = document.getElementById('profile-form');
 const params = new URLSearchParams(location.search);

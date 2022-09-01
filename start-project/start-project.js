@@ -1,10 +1,7 @@
 // import fetch utils functions
-import { uploadAudio, newProject, updateTrack, checkAuth, signOutUser } from '../fetch-utils.js';
+import { uploadAudio, newProject, updateTrack, checkAuth } from '../fetch-utils.js';
 
 checkAuth();
-
-const signOutLink = document.getElementById('sign-out-link');
-signOutLink.addEventListener('click', signOutUser);
 
 //DOM elements
 const startForm = document.getElementById('start-project-form');
