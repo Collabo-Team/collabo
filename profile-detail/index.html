@@ -14,7 +14,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/global.css" />
-    <link rel="stylesheet" href="../styles/profile-detail.css">
+    <link rel="stylesheet" href="profile-detail.css">
     <link rel="icon" type="image/x-icon" href="assets/collabo-icon-500-trx-black.png">
     <title>Collabo | Profile Update</title>
 </head>
@@ -59,29 +59,25 @@
 
                             <div>
                                 <label>
-                                    <input id="address-input" class="form-element" name="address-input" type="text" placeholder="Address" required />
+                                    <input id="user-name" class="form-element" name="user-name" type="text" placeholder="User-Name" />
                                 </label>
                             </div>
 
                             <div>
-                                <label for="profile-email">
-                                    <input id="profile-email" class="form-element" name="preofile-email" type="email" placeholder="Collabo Account Email" />
-                                </label>
-                            </div>
-
-                            <div>
-                                <label for="password-input">
-                                    <input id="password-input" class="form-element" name="password-input" type="password" minlength="8" placeholder="Collabo Account Password" />
+                                <label for="bio">
+                                    <textarea id="bio" name="bio" rows="3" cols="20" placeholder="Enter short bio...">    
+                                    </textarea>
+                                    
                                 </label>
                             </div>
 
                         <fieldset id="upload-photo">
                             <p for="profile-image">Upload photo:
-                                <input id="image-file" type="file" name="image-file" accept="image/png, image/jpeg">
-                                <label for="image-name">Image Alias:<input id="image-name" name="image-name" type="text" /></label>
+                                <input id="image-file" type="file" name="image-file" method="POST" accept="image/*">
+                                <label for="image-name">Image</label>
                             </p>
                         </fieldset>
-                    
+                        <fieldset>
                             <button id="update-button" class="input-element">Update</button>
                                 <p class="error"></p>
                                 <a href="./"></a>

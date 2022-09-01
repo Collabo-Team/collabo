@@ -109,14 +109,14 @@ export async function getProjects() {
 //     return await client.from('profiles').insert(profile).single();
 // }
 
-export async function updateProfile(profile, id) {
+export async function updateProfile(profile) {
     return await client.from('profiles').insert(profile).single();
 }
 
-export async function uploadProfilePhoto(bucketName, fileName) {
+export async function uploadProfilePhoto(bucketName, fileName, imageFile) {
     const bucket = client.storage.from(bucketName);
 
-    const response = await bucket.upload(fileName, {
+    const response = await bucket.upload(fileName, imageFile, {
         cacheControl: '3600',
 
         upsert: true,
