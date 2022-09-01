@@ -102,3 +102,32 @@ export async function getProjects() {
     const response = await client.from('projects').select('*');
     return response.data;
 }
+
+// PROFILE FETCH FNS
+
+// export async function createProfile(profile) {
+//     return await client.from('profiles').insert(profile).single();
+// }
+
+export async function updateProfile(profile, id) {
+    return await client.from('profiles').insert(profile).single();
+}
+
+export async function uploadProfilePhoto(bucketName, fileName) {
+    const bucket = client.storage.from(bucketName);
+
+    const response = await bucket.upload(fileName, {
+        cacheControl: '3600',
+
+        upsert: true,
+    });
+
+    if (response.error) {
+        console.log(response.error);
+        return null;
+    }
+
+    const url = `${SUPABASE_URL}/storage/v1/object/public/${response.data.Key}`;
+
+    return url;
+}

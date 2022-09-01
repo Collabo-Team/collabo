@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" type="image/x-icon" href="assets/alchemy-favicon.png" />
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Megrim&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="../styles/profile-detail.css">
+    <link rel="icon" type="image/x-icon" href="assets/collabo-icon-500-trx-black.png">
+    <title>Collabo | Profile Update</title>
+</head>
+
+<body>
+    <div class="page">
+
+    <header class="header"> 
+        <nav>
+            <div id="collabo-logo">
+                <p class="logo">Collabo</p>
+            </div>
+            <div class="nav-links">
+                <a href="../start-project">
+                    <button>Start a Collabo</button>
+                </a>
+                <a href="/" class="nav-link">Projects</a>
+                <a href="../about" class="nav-link">About</a>
+            </div>
+        </nav>
+    </header>
+
+        <main>
+            <div class="profile-container">
+                <section class="form-section">
+
+                    <form id="profile-form">
+                        <fieldset class="form-inputs">
+                            <h3 id="profile-title">Edit Profile</h3>
+
+                            <div>
+                                <label for="first-name-input">
+                                    <input id="first-name-input" class="form-element" name="first-name-input" type="text" placeholder="First name" />
+                                </label>
+                            </div>
+
+                            <div>
+                                <label for="last-name-input">
+                                    <input id="last-name-input" class="form-element" name="last-name-input" type="text" placeholder="Last name" />
+                                </label>
+                            </div> 
+
+                            <div>
+                                <label>
+                                    <input id="address-input" class="form-element" name="address-input" type="text" placeholder="Address" required />
+                                </label>
+                            </div>
+
+                            <div>
+                                <label for="profile-email">
+                                    <input id="profile-email" class="form-element" name="preofile-email" type="email" placeholder="Collabo Account Email" />
+                                </label>
+                            </div>
+
+                            <div>
+                                <label for="password-input">
+                                    <input id="password-input" class="form-element" name="password-input" type="password" minlength="8" placeholder="Collabo Account Password" />
+                                </label>
+                            </div>
+
+                        <fieldset id="upload-photo">
+                            <p for="profile-image">Upload photo:
+                                <input id="image-file" type="file" name="image-file" accept="image/png, image/jpeg">
+                                <label for="image-name">Image Alias:<input id="image-name" name="image-name" type="text" /></label>
+                            </p>
+                        </fieldset>
+                    
+                            <button id="update-button" class="input-element">Update</button>
+                                <p class="error"></p>
+                                <a href="./"></a>
+                        </fieldset>
+                    </form>
+                </section> 
+            </div>          
+        </main>
+    </div>          
+    
+    <script type="module" src="profile-detail.js"></script>
+    
+</body>
+
+</html>

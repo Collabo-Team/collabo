@@ -8,7 +8,6 @@ export function renderProject(project) {
     const a = document.createElement('a');
     // a.classList.add('project-list');
     a.href = `./project-detail/?id=${project.id}`;
-
     p.textContent = `${project.name}`;
 
     div.append(p);

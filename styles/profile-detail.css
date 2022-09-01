@@ -1,0 +1,128 @@
+:root {
+    --logo-font: 'Megrim', cursive;
+    --main-font: 'Space Mono', monospace;
+
+}
+
+/* GLOBAL STYLES */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--main-font);
+}
+
+button {
+    cursor: pointer;
+}
+
+/* HEADER */
+
+header {
+    margin: 48px 48px 0 48px;
+    
+}
+
+header p {
+    display: flex;
+    font-family: var(--logo-font);
+    font-size: 2.4em;
+}
+
+nav {
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+nav a {
+    color: inherit;
+}
+
+.nav-link {
+    margin-left: 32px;
+    font-size: 1em;
+}
+
+.nav-links button { 
+    margin-bottom: 48px;
+    font-family: var(--main-font);
+    padding: 10px 20px;
+    border-radius: .4em;
+    border: none;
+    color: white;
+    background: rgb(183, 227, 180);
+    background: linear-gradient(45deg, rgba(183, 227, 180, 1) 0%, rgba(86, 149, 137, 1) 66%);
+}
+
+/*PROFILE DETAIL*/
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+}
+
+.profile-container {
+    width: 500px;
+    margin: auto;
+    justify-content: center;
+}
+
+.form-section {
+    max-width: 400;
+    margin: auto;
+
+}
+
+#profile-form {
+    width: 300px;
+    margin-left: 50px;
+}
+
+.form-inputs {
+    justify-content: center;
+    max-width: 400px;
+    height: 450px;
+    text-align: center;
+
+
+}
+
+#profile-title {
+    justify-content: center;
+
+}
+
+
+
+
+#upload-photo {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: left;
+    display: block;
+    justify-content: space-between;
+}
+
+.form-element {
+    margin: 10px;
+    justify-content: center;
+}
+
+#update-button {
+    margin-top:30px;
+    margin-bottom: 48px;
+    font-family: var(--main-font);
+    padding: 10px 20px;
+    border-radius: .4em;
+    border: none;
+    color: white;
+    background: rgb(183, 227, 180);
+    background: linear-gradient(45deg, rgba(183, 227, 180, 1) 0%, rgba(86, 149, 137, 1) 66%);
+}
+

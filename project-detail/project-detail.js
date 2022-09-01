@@ -50,6 +50,7 @@ export function renderProject(project) {
     const metadataDiv = document.createElement('div');
     metadataDiv.classList.add('track-metadata');
 
+    
     const genre = document.createElement('p');
     const tempo = document.createElement('p');
     const timeSignature = document.createElement('p');
@@ -63,8 +64,8 @@ export function renderProject(project) {
 
     metadataDiv.append(genre, tempo, timeSignature, key);
     div.append(h2, metadataDiv);
-
     return div;
+   
 }
 
 const projectContainer = document.getElementById('project-container');
