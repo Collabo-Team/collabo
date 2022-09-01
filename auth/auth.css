@@ -3,6 +3,24 @@
     --main-font: 'Space Mono', monospace;
 }
 
+/* * {
+    max-width: 1200px;
+    margin: auto;
+} */
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.page-header {
+    display: flow-root;
+}
+
 .logo {
     font-family: var(--logo-font);
     font-size: 2.4em;
@@ -18,26 +36,26 @@
 
 #auth-header {
 
-    position: absolute;
-    left: 30%;
-    top: 23%;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
 }
 
 #collabo-logo {
     margin: 0 auto;
 }
 
-.form-content {
+/* .form-content {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+    margin-top: 10%;
+} */
 
 #auth-form {
-    position: absolute;
-    top: 30%;
-    left: 30%;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 500px;
+    border: 1px solid;
 }
 
 #auth-header.title {
@@ -49,24 +67,16 @@ button {
     font-family: var(--main-font);
 }
 
-/* button:hover {
-    background: linear-gradient(45deg, rgba(183, 227, 180, 1) 0%, rgba(86, 149, 137, 1) 66%);
-} */
-
-/* .sign-in-btn:hover {
-    background-color: green;
-} */
-
 #sign-in-p {
     font-family: var(--main-font);
 }
 
 #sign-in-btn {
     background-color: rgba(128, 128, 128, 0.377);
-    width: 40%;
+    width: 60%;
     margin: auto;
     margin-top: 5%;
-    border-radius: 4px;
+    border-radius: 0.4em;
     box-shadow: 0px 0px 2px -2px;
 }
 

@@ -43,41 +43,6 @@ export async function signOutUser() {
 }
 
 /* Data functions */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export async function newProject(project) {
     return await client.from('projects').insert(project).single();
 }
@@ -105,57 +70,27 @@ export async function uploadAudio(bucketName, audioName, audioFile) {
     return url;
 }
 
+export async function getTrack(folderName) {
+    return await client.storage.from('files-bucket').download(folderName);
+}
 
-// export async function downloadTrack() {
-//     const response = await client.storage
-//         .from('files-bucket')
-//         .download('user-files/audioName');
-//     console.log('!!', response.data);
-// }
+export async function getTracksByProject(project_id) {
+    const response = await client.from('tracks').select('*').match({ project_id });
+    return response.data;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export function updateTrackInRealtime(handleInsert, playlist) {
+    client
+        .from('tracks')
+        .on('INSERT', (e) => {
+            playlist.load([{ src: e.new.url, name: e.new.instrument }]);
+        })
+        .subscribe();
+}
 
 export async function getProject(id) {
     // from the roster table, select a single player who has the matching id
-    const response = await client.from('projects').select('*').match({ id }).single();
+    const response = await client.from('projects').select('*, tracks(*)').match({ id }).single();
     // and return the response
     if (response.error) {
         throw new Error(response.error.message);
@@ -168,4 +103,31 @@ export async function getProjects() {
     return response.data;
 }
 
-// track.name
+// PROFILE FETCH FNS
+
+// export async function createProfile(profile) {
+//     return await client.from('profiles').insert(profile).single();
+// }
+
+export async function updateProfile(profile, id) {
+    return await client.from('profiles').insert(profile).single();
+}
+
+export async function uploadProfilePhoto(bucketName, fileName) {
+    const bucket = client.storage.from(bucketName);
+
+    const response = await bucket.upload(fileName, {
+        cacheControl: '3600',
+
+        upsert: true,
+    });
+
+    if (response.error) {
+        console.log(response.error);
+        return null;
+    }
+
+    const url = `${SUPABASE_URL}/storage/v1/object/public/${response.data.Key}`;
+
+    return url;
+}

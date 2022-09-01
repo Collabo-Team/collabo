@@ -18,6 +18,7 @@ startForm.addEventListener('submit', async (event) => {
         time_signature: data.get('time-signature'),
         key: data.get('key-signature'),
     });
+    console.log('1', response);
     const project = response.data;
     const trackUpload = {
         instrument: data.get('instrument')
@@ -42,12 +43,5 @@ startForm.addEventListener('submit', async (event) => {
 
     window.location.replace(`../project-detail/?id=${project.id}`);
 });
-
-// const downloadButton = document.querySelector('.download');
-
-// downloadButton.addEventListener('click', async () => {
-//     await downloadTrack();
-// });
-
 
 

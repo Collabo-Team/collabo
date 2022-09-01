@@ -9,7 +9,7 @@ form {
     margin: auto;
     max-width: 500px;
     border: 1px solid;
-    background: linear-gradient(45deg, rgba(183, 227, 180, 1) 0%, rgba(86, 149, 137, 1) 66%);
+    
     padding: 20px;
 
     font-family: var(--main-font);
