@@ -14,12 +14,11 @@
 <body>
     <header>
         <nav>
-            <p class="logo">Collabo</p>
+            <a href="/"><p class="logo">Collabo</p></a>
             <div class="nav-links">
                 <a href="/" class="nav-link">Projects</a>
                 <a href="../about" class="nav-link">About</a>
-                <a href="../profile-detail" class="nav-link">Edit Profile</a>
-                <a id="sign-out-link" href="/auth" class="nav-link">Sign-Out</a>
+                <a href="../profile-detail" class="nav-link">Profile</a>
             </div>
         </nav>
     </header>
@@ -32,13 +31,37 @@
                     <input name="project-name" required >
                 </label>
                 <label>Project Genre:
-                    <input name="genre" required >
+                    <select name="genre" required >
+                        <option>Rock</option>
+                        <option>Hip Hop</option>
+                        <option>Pop</option>
+                        <option>Electronic</option>
+                        <option>Jazz</option>
+                        <option>Country</option>
+                        <option>Classical</option>
+                        <option>Reggae</option>
+                        <option>Soul</option>
+                        <option>R&amp;B</option>
+                        <option>World</option>
+                        <option>Indie Rock</option>
+                        <option>Punk</option>
+                        <option>Metal</option>
+                        <option>Folk</option>
+                        <option>Latin</option>
+                        <option>Gospel</option>
+                        <option>New Wave</option>
+                        <option>Ambient</option>
+                        <option>Lofi</option>
+                        <option>Prog Rock</option>
+                        <option>Funk</option>
+                        <option>Vocal</option>
+                    </select>
                 </label>
                 <label>Project Tempo:
                     <input name="tempo" required type="number" placeholder="Beats Per Minute" min="5" max="400" >
                 </label>
-                <label> Project Time Signature:
-                    <select name="time-signature">
+                <label>Project Time Signature:
+                    <select name="time-signature" required>
                         <option>3/4</option>
                         <option selected>4/4</option>
                         <option>5/4</option>
@@ -51,7 +74,7 @@
                     </select>
                 </label>
                 <label> Project Key:
-                    <select name="key-signature">
+                    <select name="key-signature" required>
                         <option>B major</option>
                         <option>B&#9837; major</option>
                         <option>A major</option>
@@ -66,7 +89,6 @@
                         <option>D&#9837; major</option>
                         <option>C&#9839; major</option>
                         <option selected>C major</option>
-                        <option>C&#9837; major</option>
                         <option disabled>───────</option>
                         <option>B minor</option>
                         <option>B&#9837; minor</option>

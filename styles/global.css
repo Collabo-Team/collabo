@@ -59,24 +59,40 @@ nav a {
 
 /* HOME PAGE */
 
+video {
+    height: 800px;
+}
+
+#video-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 48px;
+}
+
 .headline {
     text-align: center;
 }
 
-.headline h1 {
+.headline h1,
+.headline h2 {
     font-family: var(--main-font);
-    font-size: 5rem;
+    font-size: 6rem;
     text-transform: uppercase;
-    line-height: 9rem;
+    line-height: 7rem;
 }
 
 .headline p {
     font-family: var(--main-font);
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .tagline {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.title {
+    margin: 20px;
 }
 
 .collabo-btn {
@@ -87,14 +103,14 @@ nav a {
     color: white;
     background: rgb(183, 227, 180);
     background: linear-gradient(45deg, rgba(183, 227, 180, 1) 0%, rgba(86, 149, 137, 1) 66%);
-    margin: 10px 0;
+    margin: 10px;
 }
 
 .button-div {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 30px;
+    margin: 20px;
 }
 
 .project-wrapper {
@@ -112,8 +128,8 @@ nav a {
 }
 
 .project-list {
-    height: 280px;
-    width: 280px;
+    height: 240px;
+    width: 240px;
     background: linear-gradient(45deg, rgba(183, 227, 180, 1) 0%, rgba(86, 149, 137, 1) 66%);
     text-align: center;
     display: flex;
@@ -124,11 +140,19 @@ nav a {
     padding: 0.05em;
 }
 
+
+=======
+.project-description {
+    color: black;
+    font-size: 1rem;
+}
+
 a,
 a:hover,
 a:active,
 a:visited {
     text-decoration: none;
+
 }
 
 .project-description {
@@ -152,3 +176,5 @@ a:visited {
         /* display: grid;
         grid-template-rows: 1fr 1fr 1fr;
 grid-template-areas: "text . image"; */
+}
+

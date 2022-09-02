@@ -64,6 +64,7 @@ nav a {
     grid-template-rows: 5% 15% 20% 5% 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 30px;
+    margin: 40px;
 }
 
 
@@ -132,6 +133,7 @@ nav a {
 .name {
     text-align: center;
     text-decoration: none;
+    color: inherit;
 }
 
 .icons {
@@ -142,7 +144,7 @@ nav a {
 }
 
 .div-8 {
-    grid-area: 4 / 2 / 5 / 5;
+    grid-area: 7 / 2 / 8 / 5;
     max-width: 750px;
     margin: auto;
     text-align: center;
@@ -152,6 +154,8 @@ nav a {
   
 .link {
     text-decoration: none;
+    font-weight: bold;
+    color: inherit;
 }
 
     

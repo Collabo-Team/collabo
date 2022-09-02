@@ -20,6 +20,10 @@ button {
     cursor: pointer;
 }
 
+a {
+   text-decoration: none; 
+}
+
 /* HEADER */
 
 header {
@@ -39,6 +43,7 @@ nav {
 
 nav a {
     color: inherit;
+    text-decoration: none;
 }
 
 .nav-link {
