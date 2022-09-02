@@ -109,8 +109,12 @@ export async function getProjects() {
 //     return await client.from('profiles').insert(profile).single();
 // }
 
-export async function updateProfile(profile) {
-    return await client.from('profiles').insert(profile).single();
+export async function updateProfile(profile, id) {
+    return await client.from('profiles').upsert(profile).match({ id }).single();
+}
+
+export async function getProfile(id) {
+    return await client.from('profiles').select('*').match({ id }).single();
 }
 
 export async function uploadProfilePhoto(bucketName, fileName, imageFile) {

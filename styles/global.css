@@ -124,10 +124,6 @@ nav a {
     padding: 0.05em;
 }
 
-.project-description {
-    font-family: var(--main-font);
-}
-
 a,
 a:hover,
 a:active,
@@ -138,4 +134,21 @@ a:visited {
 .project-description {
     color: black;
     font-size: 1.5rem;
+    text-align: center;
+    font-family: var(--main-font);
+    position: absolute;
 }
+
+.avatar {
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    /* background-color: red; */
+    position: relative;
+    left: 30%;
+    top: 30%;
+    margin: 0 10px 0 0;
+}
+        /* display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+grid-template-areas: "text . image"; */
