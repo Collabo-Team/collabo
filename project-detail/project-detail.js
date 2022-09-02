@@ -58,7 +58,7 @@ export function renderProject(project) {
 
     h2.textContent = project.name;
     genre.textContent = project.genre;
-    tempo.textContent = project.tempo;
+    tempo.textContent = `${project.tempo} bpm`;
     timeSignature.textContent = project.time_signature;
     key.textContent = project.key;
 
