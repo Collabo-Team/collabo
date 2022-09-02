@@ -1,6 +1,6 @@
 // importing other stuff, utility functions for:
 // working with supabase:
-import { checkAuth, signOutUser, getUser, getProjects, getProfile, uploadProfilePhoto } from './fetch-utils.js';
+import { checkAuth, signOutUser, getUser, getProjects, getProfile, updateProfile } from './fetch-utils.js';
 import { renderProject } from './render-utils.js';
 // pure rendering (data --> DOM):
 
@@ -24,23 +24,16 @@ async function displayProjects() {
 
     const projects = await getProjects();
 
-
     for (let project of projects) {
-
-
-
-        const profile = await getProfile(project.created_by);
-
-        // const profile = await uploadProfilePhoto();
+        console.log(project);
+        const profile = await getProfile(project.reference);
 
         const projectEl = renderProject(project, profile);
 
+        // projectEl.avatar.href = URL(profile.image_file);
 
-
-        console.log(profile);
         projectsListEl.append(projectEl);
     }
-
 }
 
 displayProjects();
@@ -60,5 +53,4 @@ window.addEventListener('load', () => {
         signOut.textContent = 'Sign-In';
     }
 });
-
 

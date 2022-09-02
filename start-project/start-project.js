@@ -1,11 +1,11 @@
 // import fetch utils functions
 import { uploadAudio, newProject, updateTrack, checkAuth, signOutUser } from '../fetch-utils.js';
 
-checkAuth();
+const user = checkAuth();
 
 const signOutLink = document.getElementById('sign-out-link');
 signOutLink.addEventListener('click', signOutUser);
-
+console.log('user.id', user.id);
 //DOM elements
 const startForm = document.getElementById('start-project-form');
 
@@ -20,7 +20,7 @@ startForm.addEventListener('submit', async (event) => {
         tempo: data.get('tempo'),
         time_signature: data.get('time-signature'),
         key: data.get('key-signature'),
-        // created_by: user.email,
+        created_by: user.id,
     });
     console.log('1', response);
     const project = response.data;
