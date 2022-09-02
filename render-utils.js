@@ -1,4 +1,4 @@
-export function renderProject(project, profile) {
+export function renderProject(project) {
     const div = document.createElement('div');
     div.classList.add('project-list');
 
@@ -14,8 +14,7 @@ export function renderProject(project, profile) {
     avatar.classList.add('avatar');
 
 
-    avatar.src = 'https://lhopwipdeoyzrdkhgnll.supabase.co/storage/v1/object/public/files-bucket/profile-images/606718collabo-icon-500.png';
-
+    avatar.src = '';
 
     div.append(p, avatar);
     a.append(div);

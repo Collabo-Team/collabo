@@ -1,6 +1,9 @@
 // importing other stuff, utility functions for:
 // working with supabase:
-import { checkAuth, signOutUser, getUser, getProjects, getProfile, updateProfile } from './fetch-utils.js';
+import {
+    checkAuth, signOutUser, getUser, getProjects, getProfiles, getProfile
+    // getProfile, getProfileImage
+} from './fetch-utils.js';
 import { renderProject } from './render-utils.js';
 // pure rendering (data --> DOM):
 
@@ -25,14 +28,29 @@ async function displayProjects() {
     const projects = await getProjects();
 
     for (let project of projects) {
-        console.log(project);
-        const profile = await getProfile(project.reference);
 
-        const projectEl = renderProject(project, profile);
+        // const profileImg = await getProfile(project.created_by);
 
-        // projectEl.avatar.href = URL(profile.image_file);
+        const projectEl = renderProject(project);
 
+        // projectEl.append(profileImg);
+        
         projectsListEl.append(projectEl);
+    }
+
+    const avatar = document.querySelector('.avatar');
+
+    console.log('avatar', avatar);
+    const profiles = await getProfiles();
+    
+    for (let profile of profiles) {
+        console.log('profile', profile);
+        const profileImg = await getProfile(profile.image_file);
+
+        console.log('profile.image_file', profile.image_file);
+
+        // avatar.textContent = profileImg;
+        projectsListEl.append(profileImg);
     }
 }
 

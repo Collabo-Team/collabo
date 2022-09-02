@@ -113,9 +113,18 @@ export async function updateProfile(profile, id) {
     return await client.from('profiles').upsert(profile).match({ id }).single();
 }
 
+export async function getProfiles() {
+    const response = await client.from('profiles').select('*');
+    return response.data;
+}
+
 export async function getProfile(id) {
     return await client.from('profiles').select('*').match({ id }).single();
 }
+
+// export async function getProfileImage(image_file) {
+//     return await client.from('profiles').select('*').match({ image_file }).single();
+// }
 
 export async function uploadProfilePhoto(bucketName, fileName, imageFile) {
     const bucket = client.storage.from(bucketName);
