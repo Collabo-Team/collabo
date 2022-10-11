@@ -106,8 +106,10 @@ nav a {
 }
 
 #play-button,
-#pause-button {
-    transition: background-color 0.4s ease;
+#pause-button,
+#stop-button,
+#record-button {
+    transition: all 0.4s ease;
 }
 
 #play-button:focus,
@@ -117,6 +119,15 @@ nav a {
 #pause-button:focus,
 #pause-button:hover {
     background-color: #bfd8e4;
+}
+#stop-button:focus,
+#stop-button:hover {
+    background-color: #9686b1;
+}
+#record-button:focus,
+#record-button:hover {
+    color: white;
+    background-color: #c78283;
 }
 
 #playlist {
