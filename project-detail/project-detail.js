@@ -160,6 +160,8 @@ const stopButton = document.getElementById('stop-button');
 const recordButton = document.getElementById('record-button');
 
 
+const ee = playlist.getEventEmitter();
+
 async function displayTracks(tracks) {
     const loadList = [];
     for (const track of tracks) {
@@ -167,7 +169,7 @@ async function displayTracks(tracks) {
     }
 
     await playlist.load(loadList);
-    const ee = playlist.getEventEmitter();
+
     playButton.addEventListener('click', () => {
         ee.emit('play');
     });
@@ -185,3 +187,11 @@ async function displayTracks(tracks) {
     });
 }
 updateTrackInRealtime(loadDetails, playlist, params.get('id'));
+
+
+// TRACK LOADING STATE
+const loaderEl = document.querySelector('.loader');
+ee.on('audiosourcesrendered', function() {
+    loaderEl.style.display = 'none';
+});
+

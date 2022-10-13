@@ -241,6 +241,23 @@ nav a {
     background-color: rgb(183, 227, 180);
 }
 
+/* TRACK LOADING */
+
+.loader {
+    margin: 120px;
+}
+
+svg polygon {
+  stroke-dasharray: 50;
+  animation: dashoffset 1.5s linear infinite;
+}
+
+@keyframes dashoffset {
+  to {
+    stroke-dashoffset: 100;
+  }
+}
+
 /* UPLOAD SECTION */
 
 #upload-section {
