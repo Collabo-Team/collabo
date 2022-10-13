@@ -30,7 +30,7 @@ const playlist = WaveformPlaylist.init({
 
 // HORIZONTAL SCROLLING INSIDE WAVEFORM
 const container = document.querySelector('.playlist-tracks');
-container.addEventListener('wheel', function(e) {
+container.addEventListener('wheel', function (e) {
     if (e.deltaY > 0) {
         container.scrollLeft += 100;
         e.preventDefault();
@@ -50,7 +50,6 @@ export function renderProject(project) {
     const metadataDiv = document.createElement('div');
     metadataDiv.classList.add('track-metadata');
 
-    
     const genre = document.createElement('p');
     const tempo = document.createElement('p');
     const timeSignature = document.createElement('p');
@@ -65,7 +64,6 @@ export function renderProject(project) {
     metadataDiv.append(genre, tempo, timeSignature, key);
     div.append(h2, metadataDiv);
     return div;
-   
 }
 
 const projectContainer = document.getElementById('project-container');
@@ -103,18 +101,20 @@ async function loadDetails() {
     const projectDisplay = renderProject(project);
     projectContainer.append(projectDisplay);
     await displayTracks(project.tracks);
-    
+
     uploadForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = new FormData(uploadForm);
-        
+
         const trackUpload = {
             instrument: formData.get('instrument'),
         };
-        
+
         const audioFile = formData.get('audio-input');
         if (audioFile.size) {
-            const audioName = `${project.id}/${Math.floor(Math.random() * 1000000)}${audioFile.name}`;
+            const audioName = `${project.id}/${Math.floor(Math.random() * 1000000)}${
+                audioFile.name
+            }`;
             const url = await uploadAudio('files-bucket', audioName, audioFile);
             trackUpload.folder = audioName;
             trackUpload.url = url;
@@ -127,8 +127,38 @@ async function loadDetails() {
 
 loadDetails();
 
+var userMediaStream;
+const constraints = { audio: true };
+
+navigator.getUserMedia =
+    navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia;
+
+function gotStream(stream) {
+    userMediaStream = stream;
+    playlist.initRecorder(userMediaStream);
+}
+
+function logError(err) {
+    console.error(err);
+}
+
+//initialize the WAV exporter.
+playlist.initExporter();
+
+if (navigator.mediaDevices) {
+    navigator.mediaDevices.getUserMedia(constraints).then(gotStream).catch(logError);
+} else if (navigator.getUserMedia && 'MediaRecorder' in window) {
+    navigator.getUserMedia(constraints, gotStream, logError);
+}
+
 const playButton = document.getElementById('play-button');
 const pauseButton = document.getElementById('pause-button');
+const stopButton = document.getElementById('stop-button');
+const recordButton = document.getElementById('record-button');
+
 
 const ee = playlist.getEventEmitter();
 
@@ -143,9 +173,17 @@ async function displayTracks(tracks) {
     playButton.addEventListener('click', () => {
         ee.emit('play');
     });
-    
+
     pauseButton.addEventListener('click', () => {
         ee.emit('pause');
+    });
+
+    stopButton.addEventListener('click', () => {
+        ee.emit('stop');
+    });
+
+    recordButton.addEventListener('click', () => {
+        ee.emit('record');
     });
 }
 updateTrackInRealtime(loadDetails, playlist, params.get('id'));
@@ -156,3 +194,4 @@ const loaderEl = document.querySelector('.loader');
 ee.on('audiosourcesrendered', function() {
     loaderEl.style.display = 'none';
 });
+
