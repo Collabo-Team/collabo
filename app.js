@@ -12,7 +12,9 @@ import { renderProject } from './render-utils.js';
 
 // sign out link:
 const signOutLink = document.getElementById('sign-out-link');
-signOutLink.addEventListener('click', signOutUser);
+signOutLink.addEventListener('click', async () => {
+    await signOutUser();
+});
 /* end "boiler plate auth code" */
 
 // grab needed DOM elements on page:
