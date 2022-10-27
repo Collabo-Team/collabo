@@ -16,7 +16,7 @@ startForm.addEventListener('submit', async (event) => {
         genre: data.get('genre'),
         tempo: data.get('tempo'),
         time_signature: data.get('time-signature'),
-        key: data.get('key-signature'),
+        musical_key: data.get('key-signature'),
     });
     console.log('1', response);
     const project = response.data;
