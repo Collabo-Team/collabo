@@ -1,1 +1,1 @@
-<img width="1904" alt="Screen Shot 2022-08-29 at 8 59 21 AM" src="https://user-images.githubusercontent.com/73365865/187228925-ad0bfae1-920e-40bf-a2bd-63f33c75d3ff.png">
+![collabo-laptop](https://user-images.githubusercontent.com/73365865/218589174-efd9e3d0-7613-480d-9894-33782eac1cd1.jpg)
